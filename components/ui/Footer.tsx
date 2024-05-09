@@ -21,10 +21,12 @@ export const Footer = () => {
 
   return (
     <>
-      <div className="p-2 dark:bg-slate-900 bg-slate-100 center">
-        <Button onClick={toggle}>
-          <Menu />
-        </Button>
+      <div className="p-2 dark:bg-slate-900 bg-slate-50 center ">
+        <div className="w-full center max-w-screen-lg">
+          <Button onClick={toggle}>
+            <Menu />
+          </Button>
+        </div>
       </div>
       <FooterDrawer isOpen={isOpen} onClose={onClose} />
     </>
@@ -46,11 +48,13 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
   return (
     <Drawer open={isOpen}>
       <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>Select an option</DrawerTitle>
-          <DrawerDescription>
-            These are the options related to the house
-          </DrawerDescription>
+        <DrawerHeader className="center">
+          <div className="w-full max-w-screen-lg">
+            <DrawerTitle>Select an option</DrawerTitle>
+            <DrawerDescription>
+              Navigate the app by selecting an option
+            </DrawerDescription>
+          </div>
         </DrawerHeader>
         <DrawerFooter className="center">
           {navigation.map(({ text, href }, index) => (

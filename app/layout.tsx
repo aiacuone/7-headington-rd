@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { ModeToggle } from '@/components/ModeToggle'
 import { Header } from '@/components/ui/Header'
 import { Footer } from '@/components/ui/Footer'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,6 +31,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1 center p-2">{children}</main>
             <Footer />
+            <Toaster />
           </div>
         </ThemeProvider>
       </body>

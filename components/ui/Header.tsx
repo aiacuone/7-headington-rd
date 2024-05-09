@@ -1,8 +1,6 @@
 'use client'
 
-import Link from 'next/link'
 import { ModeToggle } from '../ModeToggle'
-import { Button } from './button'
 import { usePathname } from 'next/navigation'
 import { navigation } from '@/lib/navigation'
 
@@ -12,14 +10,16 @@ export const Header = () => {
   const headerTitle = currentPage?.text
 
   return (
-    <header className="hstack dark:bg-slate-900 bg-slate-100 p-2 relative">
-      <div className="center">
-        <p>7 Headington Rd</p>
+    <header className="dark:bg-slate-900 bg-slate-50 p-2 relative center">
+      <div className="w-full max-w-screen-lg hstack">
+        <div className="center">
+          <p>7 Headington Rd</p>
+        </div>
+        <div className="flex-1 center gap-3">
+          <p className="absolute text-center w-full left-0">{headerTitle}</p>
+        </div>
+        <ModeToggle />
       </div>
-      <div className="flex-1 center gap-3">
-        <p className="absolute text-center w-full left-0">{headerTitle}</p>
-      </div>
-      <ModeToggle />
     </header>
   )
 }

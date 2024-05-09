@@ -2,14 +2,9 @@ import { CustomTabs } from '@/components/ui/CustomTabs'
 
 const BinsPage = () => {
   const tabs = [
-    { label: 'When', content: 'The Bins are emptied every Friday' },
     {
-      label: 'Recycling',
-      content: <RecyclingContent />,
-    },
-    {
-      label: 'Calendar',
-      content: <CalendarContent />,
+      label: 'Collection Day',
+      content: <CollectionDayContent />,
     },
   ]
 
@@ -18,11 +13,13 @@ const BinsPage = () => {
 
 export default BinsPage
 
-const RecyclingContent = () => {
+const CollectionDayContent = () => {
   return (
     <div>
+      <p>Refuse collection is every Friday</p>
+      <br />
       <p>
-        The recycling is emptied every{' '}
+        Recycling is collected every{' '}
         <b>
           <i>second</i>
         </b>{' '}
@@ -37,21 +34,6 @@ const RecyclingContent = () => {
           calendar
         </a>{' '}
         calendar to know which Friday
-      </p>
-    </div>
-  )
-}
-
-const CalendarContent = () => {
-  return (
-    <div>
-      <p>
-        The calendar can be found in{' '}
-        <a
-          href="https://www.dartford.gov.uk/downloads/file/2184/recycling-week-1-calendar"
-          target="_blank">
-          here
-        </a>
       </p>
     </div>
   )

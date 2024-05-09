@@ -4,10 +4,10 @@ const HeatingPage = () => {
   const tabs = [
     {
       label: 'Basics',
-      content: 'Basic info .....',
+      content: <BasicInfoContent />,
     },
     {
-      label: 'Batteries',
+      label: 'Thermostats',
       content: <BatteriesContent />,
     },
   ]
@@ -17,10 +17,29 @@ const HeatingPage = () => {
 
 export default HeatingPage
 
+const BasicInfoContent = () => {
+  return (
+    <div>
+      <p>The house is heated by radiators</p>
+    </div>
+  )
+}
+
 const BatteriesContent = () => {
   return (
     <div>
-      <p>The heating control units are powered by 2x AA batteries.</p>
+      <div className="center stack">
+        <p className="text-left">
+          The thermostats are located in the following locations
+        </p>
+        <ol className="text-left">
+          <li>Main Master bedroom</li>
+          <li>Secondary Master bedroom</li>
+          <li>Outside the under stair storage</li>
+        </ol>
+      </div>
+      <br />
+      <p>The thermostats are powered by 2x AA batteries.</p>
       <br />
       <p>
         To replace the batteries, lift the flap from the bottom of the unit, and
