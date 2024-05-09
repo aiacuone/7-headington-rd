@@ -76,11 +76,11 @@
 }
 
 .stack {
-  @apply flex flex-col gap-4;
+  @apply flex flex-col;
 }
 
 .hstack {
-  @apply flex gap-4;
+  @apply flex;
 }
 
 .center {
