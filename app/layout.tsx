@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { ModeToggle } from '@/components/ModeToggle'
+import { Header } from '@/components/ui/Header'
+import { Footer } from '@/components/ui/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,16 +27,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           <div className="stack h-[100dvh] ">
-            <header className="hstack dark:bg-slate-800 bg-slate-100 p-2">
-              <div className="flex-1 center">
-                <h1>7 Headington Rd</h1>
-              </div>
-              <ModeToggle />
-            </header>
+            <Header />
             <main className="flex-1 center">{children}</main>
-            <footer className="p-2 dark:bg-slate-800 bg-slate-100 center">
-              footer
-            </footer>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
