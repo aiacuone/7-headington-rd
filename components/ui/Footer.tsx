@@ -1,6 +1,6 @@
 'use client'
 
-import { Menu } from 'lucide-react'
+import { Home, Menu } from 'lucide-react'
 import { Button } from './button'
 import { useDisclosure } from '@/lib/hooks'
 import {
@@ -16,7 +16,7 @@ import { navigation } from '@/lib/navigation'
 import { useRouter } from 'next/navigation'
 
 export const Footer = () => {
-  const { isOpen, onOpen, onClose, toggle } = useDisclosure()
+  const { isOpen, onClose, toggle } = useDisclosure()
   const { push } = useRouter()
   const onClickLink = (href: string) => {
     onClose()
@@ -25,7 +25,7 @@ export const Footer = () => {
 
   return (
     <>
-      <div className="p-2 dark:bg-slate-800 bg-slate-100 center">
+      <div className="p-2 dark:bg-slate-900 bg-slate-100 center">
         <Button onClick={toggle}>
           <Menu />
         </Button>
@@ -39,6 +39,9 @@ export const Footer = () => {
             </DrawerDescription>
           </DrawerHeader>
           <DrawerFooter className="center">
+            <Button onClick={() => onClickLink('/')}>
+              <Home />
+            </Button>
             {navigation.map(({ text, href }, index) => (
               <Button
                 onClick={() => onClickLink(href)}
