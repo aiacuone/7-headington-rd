@@ -16,3 +16,11 @@ Areas to cover
 - How to use the oven
 - How to use the dishwasher
 - List of all the supplied appliances and furniture
+
+Photos:
+
+- Keys
+- Appliances
+- Furniture
+- Thermostat
+- Thermostat Battery
