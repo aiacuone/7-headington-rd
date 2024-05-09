@@ -1,9 +1,14 @@
+import { Menu } from 'lucide-react'
+import { Button } from './button'
+
 export const Footer = () => {
   {
     return (
-      <footer className="p-2 dark:bg-slate-800 bg-slate-100 center">
-        7 Headington Rd
-      </footer>
+      <div className="p-2 dark:bg-slate-800 bg-slate-100 center">
+        <Button>
+          <Menu />
+        </Button>
+      </div>
     )
   }
 }
