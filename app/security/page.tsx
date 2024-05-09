@@ -3,8 +3,14 @@ import { CustomTabs } from '@/components/ui/CustomTabs'
 const SecurityPage = () => {
   const tabs = [
     {
-      label: 'Basics',
-      content: 'Basic info .....',
+      label: 'Privacy',
+      content:
+        'We respect the privacy you and the people invited to your home. We dont record any video within the house. The purpose for the cameras is for security and insurance purposes only',
+    },
+    {
+      label: 'Connection',
+      content:
+        'We are able to get you connected to the security system if that is what you require. Please contact us for more information.',
     },
   ]
 

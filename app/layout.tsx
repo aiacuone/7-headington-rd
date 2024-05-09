@@ -26,9 +26,9 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          <div className="stack h-[100dvh] ">
+          <div className="stack h-[100dvh]">
             <Header />
-            <main className="flex-1 center">{children}</main>
+            <main className="flex-1 center p-2">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
