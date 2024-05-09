@@ -15,3 +15,4 @@ Areas to cover
 - How to lock front and back door
 - How to use the oven
 - How to use the dishwasher
+- List of all the supplied appliances and furniture

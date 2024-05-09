@@ -1,30 +1,60 @@
 import { CustomTabs } from '@/components/ui/CustomTabs'
+import { ListItems } from '@/components/ui/ListItems'
 
-const MowerPage = () => {
+const LawnPage = () => {
   const tabs = [
     {
       label: 'Basics',
       content: <BasicsContent />,
     },
     {
-      label: 'Recommendations',
-      content: <RecommendationsContent />,
-    },
-    {
-      label: 'Batteries',
-      content:
-        'There are 2 batteries that are supplied with the mower. They over an hour to charge each',
+      label: 'Mower',
+      content: <MowerContent />,
     },
     {
       label: 'Trimmer',
-      content: 'The trimmer runs on the same batteries as the mower',
+      content: <TimmerContent />,
+    },
+    {
+      label: 'Batteries',
+      content: <BatteriesContent />,
+    },
+    {
+      label: 'Recommendations',
+      content: <RecommendationsContent />,
     },
   ]
 
   return <CustomTabs tabs={tabs} />
 }
 
-export default MowerPage
+export default LawnPage
+
+const BatteriesContent = () => {
+  const listItems = [
+    ['Amount', '2'],
+    ['Voltage', '40V'],
+  ]
+  return <ListItems items={listItems} mappingKey="battery" />
+}
+
+const TimmerContent = () => {
+  const listItems = [
+    ['Brand', 'Greenworks'],
+    ['Model', 'G40LT'],
+  ]
+  return <ListItems items={listItems} mappingKey="trimmer" />
+}
+
+const MowerContent = () => {
+  const listItems = [
+    ['Brand', 'Greenworks'],
+    ['Model', 'G40LM41K2X'],
+    ['Voltage', '40V'],
+    ['Cutting', 'Mulching, Rear Discharge, Rear Collection'],
+  ]
+  return <ListItems items={listItems} mappingKey="mower" />
+}
 
 const BasicsContent = () => {
   return (

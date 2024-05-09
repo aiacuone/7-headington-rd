@@ -8,7 +8,9 @@ interface CustomTabsProps {
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
   const showTabs = tabs.length > 1
   return (
-    <Tabs defaultValue={tabs[0].label} className="w-[400px] center stack gap-3">
+    <Tabs
+      defaultValue={tabs[0].label}
+      className="w-full sm:w-[650px] stack gap-3">
       {showTabs && (
         <TabsList>
           {tabs.map(({ label }, index) => (

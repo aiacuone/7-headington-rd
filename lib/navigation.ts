@@ -6,7 +6,7 @@ export const navigation = [
   { text: 'Heating', href: '/heating' },
   { text: 'Internet', href: '/internet' },
   { text: 'Doors', href: '/doors' },
-  { text: 'Mower', href: '/mower' },
+  { text: 'Lawn', href: '/lawn' },
   { text: 'Oven', href: '/oven' },
   { text: 'Security', href: '/security' },
   { text: 'TV', href: '/tv' },
