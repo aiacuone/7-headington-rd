@@ -1,5 +1,14 @@
+import { CustomTabs } from '@/components/ui/CustomTabs'
+
 const ContactPage = () => {
-  return <p>Contact Page</p>
+  const tabs = [
+    {
+      label: 'Agency',
+      content: 'Contact number for agency',
+    },
+  ]
+
+  return <CustomTabs tabs={tabs} />
 }
 
 export default ContactPage

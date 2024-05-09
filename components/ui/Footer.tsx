@@ -14,14 +14,10 @@ import {
 } from '@/components/ui/drawer'
 import { navigation } from '@/lib/navigation'
 import { useRouter } from 'next/navigation'
+import { FC } from 'react'
 
 export const Footer = () => {
   const { isOpen, onClose, toggle } = useDisclosure()
-  const { push } = useRouter()
-  const onClickLink = (href: string) => {
-    onClose()
-    push(href)
-  }
 
   return (
     <>
@@ -30,34 +26,51 @@ export const Footer = () => {
           <Menu />
         </Button>
       </div>
-      <Drawer open={isOpen}>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Select an option</DrawerTitle>
-            <DrawerDescription>
-              These are the options related to the house
-            </DrawerDescription>
-          </DrawerHeader>
-          <DrawerFooter className="center">
-            <Button onClick={() => onClickLink('/')}>
-              <Home />
-            </Button>
-            {navigation.map(({ text, href }, index) => (
-              <Button
-                onClick={() => onClickLink(href)}
-                className="sm:min-w-[300px] min-w-full"
-                key={`drawer link ${index}`}>
-                {text}
-              </Button>
-            ))}
-            <DrawerClose>
-              <Button variant="outline" onClick={onClose}>
-                Close
-              </Button>
-            </DrawerClose>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
+      <FooterDrawer isOpen={isOpen} onClose={onClose} />
     </>
+  )
+}
+
+interface FooterDrawerProps {
+  isOpen: boolean
+  onClose: () => void
+}
+
+const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
+  const { push } = useRouter()
+
+  const onClickLink = (href: string) => {
+    onClose()
+    push(href)
+  }
+  return (
+    <Drawer open={isOpen}>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Select an option</DrawerTitle>
+          <DrawerDescription>
+            These are the options related to the house
+          </DrawerDescription>
+        </DrawerHeader>
+        <DrawerFooter className="center">
+          <Button onClick={() => onClickLink('/')}>
+            <Home />
+          </Button>
+          {navigation.map(({ text, href }, index) => (
+            <Button
+              onClick={() => onClickLink(href)}
+              className="sm:min-w-[300px] min-w-full"
+              key={`drawer link ${index}`}>
+              {text}
+            </Button>
+          ))}
+          <DrawerClose>
+            <Button variant="outline" onClick={onClose}>
+              Close
+            </Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   )
 }

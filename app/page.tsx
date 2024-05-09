@@ -1,18 +1,8 @@
+import { CustomTabs } from '@/components/ui/CustomTabs'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 export default function Home() {
-  return (
-    <div>
-      <Tabs defaultValue="account" className="w-[400px] center stack">
-        <TabsList>
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="password">Password</TabsTrigger>
-        </TabsList>
-        <TabsContent value="account">
-          Make changes to your account here.
-        </TabsContent>
-        <TabsContent value="password">Change your password here.</TabsContent>
-      </Tabs>
-    </div>
-  )
+  const tabs = [{ label: 'Home', content: 'Welcome' }]
+
+  return <CustomTabs tabs={tabs} />
 }

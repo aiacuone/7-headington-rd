@@ -1,5 +1,14 @@
+import { CustomTabs } from '@/components/ui/CustomTabs'
+
 const OvenPage = () => {
-  return <p>Oven Page</p>
+  const tabs = [
+    {
+      label: 'Basics',
+      content: 'Basic info .....',
+    },
+  ]
+
+  return <CustomTabs tabs={tabs} />
 }
 
 export default OvenPage

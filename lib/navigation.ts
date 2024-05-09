@@ -9,6 +9,6 @@ export const navigation = [
   { text: 'Mower', href: '/mower' },
   { text: 'Oven', href: '/oven' },
   { text: 'Security', href: '/security' },
-  { text: 'Tv', href: '/tv' },
+  { text: 'TV', href: '/tv' },
   { text: 'Washing Machine', href: '/washing-machine' },
 ]
