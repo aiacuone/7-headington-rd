@@ -10,7 +10,7 @@ export default function Home() {
 const WelcomeContent = () => {
   return (
     <div>
-      <p className="text-2xl">Welcome to 7 Headington Rd</p>
+      <p className="text-xl">Welcome to 7 Headington Rd</p>
       <br />
       <p>
         We aim to to make the process of both moving in, and your stay here as
