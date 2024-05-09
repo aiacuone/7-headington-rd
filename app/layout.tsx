@@ -24,12 +24,18 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          <div>
-            header
-            <ModeToggle />
+          <div className="stack h-[100dvh] ">
+            <header className="hstack dark:bg-slate-800 bg-slate-100 p-2">
+              <div className="flex-1 center">
+                <h1>7 Headington Rd</h1>
+              </div>
+              <ModeToggle />
+            </header>
+            <main className="flex-1 center">{children}</main>
+            <footer className="p-2 dark:bg-slate-800 bg-slate-100 center">
+              footer
+            </footer>
           </div>
-          {children}
-          <div>footer</div>
         </ThemeProvider>
       </body>
     </html>
