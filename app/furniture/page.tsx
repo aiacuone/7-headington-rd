@@ -1,5 +1,4 @@
 import { ImageGrid } from '@/components/ui/ImageGrid'
-import { ScrollablePage } from '@/components/ui/ScrollablePage'
 
 const FurniturePage = () => {
   const furnitureUrl = (url: string) =>

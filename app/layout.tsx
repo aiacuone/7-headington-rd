@@ -5,7 +5,7 @@ import { Header } from '@/components/ui/Header'
 import { Footer } from '@/components/ui/Footer'
 import { Toaster } from '@/components/ui/toaster'
 import { Providers } from '@/components/Providers'
-import { ScrollablePage } from '@/components/ui/ScrollablePage'
+import { Main } from '@/components/ui/Main'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,14 +25,12 @@ export default function RootLayout({
         <Providers>
           <div className="stack h-[100dvh]">
             <Header />
-            <main className="flex-1 p-[10px]" id="main-container">
-              <ScrollablePage>{children}</ScrollablePage>
-            </main>
+            <Main>{children}</Main>
             <Footer />
-            <Toaster />
           </div>
         </Providers>
       </body>
+      <Toaster />
     </html>
   )
 }
