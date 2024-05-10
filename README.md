@@ -15,12 +15,32 @@ Areas to cover
 - How to lock front and back door
 - How to use the oven
 - How to use the dishwasher
-- List of all the supplied appliances and furniture
-
-Photos:
-
-- Keys
 - Appliances
 - Furniture
-- Thermostat
-- Thermostat Battery
+
+\*Photos
+\*\*Furniture
+
+- Office seat- []
+- Office desk- []
+- Bed- []
+- Couch- [x]
+- Coffee Table- [x]
+- Table- [x]
+- Pantry- [x]
+- Dressers- []
+- TV Table- []
+
+\*\*Appliances
+
+- Kettle- []
+- Toaster- []
+- Mower- []
+- Trimmer- []
+- TV- []
+
+\*\*Other
+
+- Keys- []
+- Thermostat- [x]
+- Thermostat Battery- [x]

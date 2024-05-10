@@ -28,7 +28,9 @@ export const ScrollablePage: FC<ScrollablePageProps> = ({ children }) => {
   }, [])
 
   return (
-    <div className="overflow-y-scroll" style={{ height: height }}>
+    <div
+      className="overflow-y-scroll hide-scrollbar justify-center flex items:start sm:items-center"
+      style={{ height: height }}>
       {children}
     </div>
   )

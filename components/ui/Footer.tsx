@@ -57,14 +57,16 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
           </div>
         </DrawerHeader>
         <DrawerFooter className="center">
-          {navigation.map(({ text, href }, index) => (
-            <Button
-              onClick={() => onClickLink(href)}
-              className="sm:min-w-[250px] min-w-full"
-              key={`drawer link ${index}`}>
-              {text}
-            </Button>
-          ))}
+          <div className="h-[300px] sm:h-auto overflow-y-scroll stack gap-3 hide-scrollbar">
+            {navigation.map(({ text, href }, index) => (
+              <Button
+                onClick={() => onClickLink(href)}
+                className="sm:min-w-[250px] min-w-full"
+                key={`drawer link ${index}`}>
+                {text}
+              </Button>
+            ))}
+          </div>
           <DrawerClose>
             <div className="hstack gap-3">
               <Button variant="outline" onClick={onClose}>

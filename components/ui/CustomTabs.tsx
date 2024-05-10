@@ -6,20 +6,17 @@ interface CustomTabsProps {
 }
 
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
-  const showTabs = tabs.length > 1
   return (
     <Tabs
       defaultValue={tabs[0].label}
       className="w-full sm:w-[650px] stack gap-3">
-      {showTabs && (
-        <TabsList>
-          {tabs.map(({ label }, index) => (
-            <TabsTrigger value={label} key={`tab trigger ${index}`}>
-              {label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      )}
+      <TabsList>
+        {tabs.map(({ label }, index) => (
+          <TabsTrigger value={label} key={`tab trigger ${index}`}>
+            {label}
+          </TabsTrigger>
+        ))}
+      </TabsList>
       {tabs.map(({ label, content }, index) => (
         <TabsContent
           value={label}
