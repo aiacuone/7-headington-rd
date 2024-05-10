@@ -7,16 +7,16 @@ interface MainProps {
 
 export const Main: FC<MainProps> = ({ children }) => {
   const [height, setHeight] = useState(0)
-  const containerPadding = 10
 
   useEffect(() => {
     const mainContainer = document.getElementById('main-container')
-    mainContainer &&
-      setHeight(mainContainer.clientHeight - containerPadding * 2)
+    // 10 is the padding of the main container
+    mainContainer && setHeight(mainContainer.clientHeight - 10 * 2)
 
     const onResize = () => {
       if (mainContainer) {
-        setHeight(mainContainer.clientHeight - containerPadding * 2)
+        // 10 is the padding of the main container
+        setHeight(mainContainer.clientHeight - 10 * 2)
       }
     }
 
@@ -28,7 +28,7 @@ export const Main: FC<MainProps> = ({ children }) => {
   }, [])
 
   return (
-    <main className={`flex-1 p-[${containerPadding}px]`} id="main-container">
+    <main className={`flex-1 p-[10px]`} id="main-container">
       <div
         className="overflow-y-scroll hide-scrollbar justify-center flex items:start sm:items-center"
         style={{ height }}>
