@@ -10,7 +10,7 @@ interface ImageGridProps {
 
 export const ImageGrid: FC<ImageGridProps> = ({ list }) => {
   return (
-    <div className="grid gap-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+    <div className="grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {list.map(({ label, imageSrc }, index) => (
         <GridItem
           key={`grid item ${index}`}

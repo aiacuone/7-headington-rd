@@ -1,5 +1,8 @@
+'use client'
+
 import { CustomTabs } from '@/components/ui/CustomTabs'
 import { ListItems } from '@/components/ui/ListItems'
+import Image from 'next/image'
 
 const HeatingPage = () => {
   const tabs = [
@@ -54,6 +57,23 @@ const ZonesContent = () => {
 }
 
 const ThermostatContent = () => {
+  const thermostatList = [
+    {
+      imageSrc:
+        'https://7-headington-rd.s3.eu-west-2.amazonaws.com/appliances/thermostat1.jpg',
+    },
+    {
+      imageSrc:
+        'https://7-headington-rd.s3.eu-west-2.amazonaws.com/appliances/thermostat2.jpg',
+      text: 'To replace the batteries, lift the flap from the bottom of the unit',
+    },
+    {
+      imageSrc:
+        'https://7-headington-rd.s3.eu-west-2.amazonaws.com/appliances/thermostat4.jpg',
+      text: 'Pull down the battery cover at the bottom of the unit',
+    },
+  ]
+
   return (
     <div className="stack gap-3">
       <p>The thermostats are located in the following locations</p>
@@ -65,10 +85,21 @@ const ThermostatContent = () => {
       <p>
         The thermostats are powered by <b>2x AA</b> batteries.
       </p>
-      <p>
-        To replace the batteries, lift the flap from the bottom of the unit, and
-        pull down the battery cover at the bottom of the unit
-      </p>
+      <div className="stack gap-6">
+        {thermostatList.map(({ imageSrc, text }, index) => (
+          <div key={`thermostat item ${index}`} className="stack gap-2">
+            <p>{text}</p>
+            <div className="center">
+              <Image
+                src={imageSrc}
+                alt="Thermostat Image 1"
+                width={300}
+                height={300}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
