@@ -30,6 +30,8 @@ Areas to cover
 - Pantry- [x]
 - Dressers- []
 - TV Table- []
+- Shoe Rack- []
+- Coat Hanger- []
 
 \*\*Appliances
 
@@ -38,6 +40,13 @@ Areas to cover
 - Mower- []
 - Trimmer- []
 - TV- []
+- 6 Foot Ladder- []
+- Extension Ladder- []
+- Range Hood- []
+- Water Heater- []
+- Kitchen Water Heater- []
+- Router- []
+- Fibre- []
 
 \*\*Other
 

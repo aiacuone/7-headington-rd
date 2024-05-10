@@ -25,7 +25,7 @@ export default function RootLayout({
         <Providers>
           <div className="stack h-[100dvh]">
             <Header />
-            <main className="w-full p-[10px]" id="main-container">
+            <main className="flex-1 p-[10px]" id="main-container">
               <ScrollablePage>{children}</ScrollablePage>
             </main>
             <Footer />
