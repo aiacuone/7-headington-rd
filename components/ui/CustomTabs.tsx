@@ -24,7 +24,7 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
         <TabsContent
           value={label}
           key={`tab content ${index}`}
-          className="text-center min-h-[450px]">
+          className="min-h-[450px]">
           {content}
         </TabsContent>
       ))}

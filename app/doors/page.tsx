@@ -1,12 +1,8 @@
 'use client'
 
 import { CustomTabs } from '@/components/ui/CustomTabs'
-import { Button } from '@/components/ui/button'
-import { FC, useState } from 'react'
 
 const DoorsPage = () => {
-  const [value, setValue] = useState('Basics' as string)
-
   const tabs = [
     {
       label: 'Lock',
@@ -16,7 +12,7 @@ const DoorsPage = () => {
     {
       label: 'Unlock',
       content:
-        'Rotate the locking mechanism clockwise, the push the handle down. Note, pushing the handle down from a locked state will have resistance, this is normal.',
+        'Rotate the locking mechanism clockwise, the push the handle down. Note, pushing the handle down from a position where the handle is all the way up will have resistance, this is normal.',
     },
     {
       label: 'Keys',
@@ -28,7 +24,3 @@ const DoorsPage = () => {
 }
 
 export default DoorsPage
-
-interface BasicsTabProps {
-  onClick: (label: string) => void
-}

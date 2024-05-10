@@ -13,8 +13,7 @@ const InternetPage = () => {
     },
     {
       label: 'Speed',
-      content:
-        'The contract with the provider is for 500mbps, but regular speeds reach 900mbps',
+      content: <SpeedContent />,
     },
   ]
 
@@ -37,8 +36,19 @@ const PasswordContent = () => {
       </p>
       <p>7TonnesOfHeading2023</p>
       <Button onClick={copyToClipboard} size="sm">
-        <Clipboard />
+        <Clipboard size="20px" />
       </Button>
+    </div>
+  )
+}
+
+const SpeedContent = () => {
+  return (
+    <div>
+      <p>
+        The contract with the provider is for <b>500mbps</b>, but regular speeds
+        reach <b>900mbps</b>
+      </p>
     </div>
   )
 }
