@@ -1,5 +1,4 @@
 import { CustomTabs } from '@/components/ui/CustomTabs'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 export default function Home() {
   const tabs = [{ label: 'Welcome', content: <WelcomeContent /> }]
@@ -10,7 +9,9 @@ export default function Home() {
 const WelcomeContent = () => {
   return (
     <div>
-      <p className="text-xl font-bold">Welcome to 7 Headington Rd</p>
+      <p className="text-xl font-bold text-center">
+        Welcome to 7 Headington Rd
+      </p>
       <br />
       <p>
         We aim to to make the process of both moving in, and your stay here as
