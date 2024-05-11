@@ -1,6 +1,18 @@
 'use client'
-import { FC, useEffect, useState } from 'react'
+import {
+  Context,
+  FC,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 
+interface MainContextProps {
+  mainContainerHeight: number
+}
+
+let MainContext: Context<MainContextProps>
 interface MainProps {
   children: React.ReactNode
 }
@@ -27,13 +39,23 @@ export const Main: FC<MainProps> = ({ children }) => {
     }
   }, [])
 
+  const contextValue: MainContextProps = {
+    mainContainerHeight: height,
+  }
+
+  MainContext = createContext(contextValue)
+
   return (
-    <main className={`flex-1 p-[10px]`} id="main-container">
-      <div
-        className="overflow-y-scroll hide-scrollbar justify-center flex items:start sm:items-center"
-        style={{ height }}>
-        {children}
-      </div>
-    </main>
+    <MainContext.Provider value={contextValue}>
+      <main className={`flex-1 p-[10px]`} id="main-container">
+        <div
+          className="overflow-y-scroll hide-scrollbar justify-center flex items:start sm:items-center"
+          style={{ height }}>
+          {children}
+        </div>
+      </main>
+    </MainContext.Provider>
   )
 }
+
+export const useMainContext = () => useContext(MainContext)

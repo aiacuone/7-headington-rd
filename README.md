@@ -4,19 +4,19 @@ Purpose
 
 Areas to cover
 
-- Heating
-- Security system
-- Bin days
-- Lawn Mower and charging
-- Contact details
-- Internet
-- TV
-- Washing machine
-- How to lock front and back door
-- How to use the oven
-- How to use the dishwasher
-- Appliances
-- Furniture
+- Heating- []
+- Security system- []
+- Bin days- [x]
+- Lawn Mower and charging- []
+- Contact details- []
+- Internet- [x]
+- TV- []
+- Washing machine- []
+- How to lock front and back door- []
+- How to use the oven- []
+- How to use the dishwasher- []
+- Appliances- []
+- Furniture- []
 
 \*Photos
 \*\*Furniture
@@ -46,7 +46,9 @@ Areas to cover
 - Water Heater- []
 - Kitchen Water Heater- []
 - Router- []
-- Fibre- []
+- Fibre Box- []
+- Washing Machine- [x]
+- Ovens- [x]
 
 \*\*Other
 
