@@ -1,6 +1,6 @@
 'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { FC, ReactNode, useRef, useState } from 'react'
+import { FC, ReactNode } from 'react'
 
 interface CustomTabsProps {
   tabs: Array<{ label: string; content: string | ReactNode }>
