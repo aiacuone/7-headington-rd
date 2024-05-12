@@ -1,6 +1,7 @@
 import { HouseItem } from '@/lib/types'
 import { capitalizeString } from '@/lib/utils/string'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FC } from 'react'
 
 interface ImageGridProps {
@@ -17,14 +18,9 @@ export const ImageGrid: FC<ImageGridProps> = ({ list }) => {
   )
 }
 
-const GridItem: FC<HouseItem> = ({
-  label,
-  imageSrc,
-  imageSources,
-  ...rest
-}) => {
+const GridItem: FC<HouseItem> = ({ label, imageSources, href, ...rest }) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center bg-slate-50 dark:bg-slate-900 rounded px-2">
       <div className="stack gap-3">
         <h3>{label}</h3>
         <div className="center">
@@ -45,6 +41,11 @@ const GridItem: FC<HouseItem> = ({
               </div>
             </li>
           ))}
+          {href && (
+            <Link href={href} target="_blank">
+              Link
+            </Link>
+          )}
         </ul>
       </div>
     </div>
