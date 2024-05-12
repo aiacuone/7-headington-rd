@@ -1,11 +1,9 @@
+import { HouseItem } from '@/lib/types'
 import Image from 'next/image'
 import { FC } from 'react'
 
 interface ImageGridProps {
-  list: {
-    label: string
-    imageSrc: string
-  }[]
+  list: HouseItem[]
 }
 
 export const ImageGrid: FC<ImageGridProps> = ({ list }) => {

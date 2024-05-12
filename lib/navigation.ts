@@ -13,4 +13,5 @@ export const navigation = [
   { text: 'Washing Machine', href: '/washing-machine' },
   { text: 'Furniture', href: '/furniture' },
   { text: 'Appliances', href: '/appliances' },
+  { text: 'Outdoor Equipment', href: '/outdoor-equipment' },
 ]

@@ -1,6 +1,6 @@
 'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import { FC, ReactNode, useCallback, useRef, useState } from 'react'
 import { useMainContext } from './Main'
 
 interface CustomTabsProps {
