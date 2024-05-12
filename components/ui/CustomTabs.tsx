@@ -24,8 +24,8 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
             style={{
               justifyContent: preventScrollIssue ? 'start' : 'center',
             }}>
-            <div id="tabs-content" ref={tabsContent}>
-              {content}
+            <div id="tabs-content" ref={tabsContent} className="center">
+              <div>{content}</div>
             </div>
           </div>
         </TabsContent>

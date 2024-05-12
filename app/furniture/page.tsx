@@ -1,4 +1,4 @@
-import { ImageGrid } from '@/components/ui/ImageGrid'
+import { CardGrid } from '@/components/ui/CardGrid'
 import { HouseItem } from '@/lib/types'
 import { getMappedHouseItems } from '@/lib/utils'
 
@@ -28,7 +28,7 @@ const FurniturePage = () => {
 
   const mappedFurnitureItems = getMappedHouseItems(furnitureItems, 'furniture')
 
-  return <ImageGrid list={mappedFurnitureItems} />
+  return <CardGrid list={mappedFurnitureItems} />
 }
 
 export default FurniturePage

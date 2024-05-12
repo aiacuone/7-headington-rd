@@ -47,7 +47,7 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
   }
   return (
     <Drawer open={isOpen}>
-      <DrawerContent>
+      <DrawerContent onBlur={onClose}>
         <DrawerHeader className="center">
           <div className="w-full max-w-screen-lg">
             <DrawerTitle>Select an option</DrawerTitle>

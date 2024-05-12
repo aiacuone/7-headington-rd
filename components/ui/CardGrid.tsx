@@ -4,21 +4,21 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-interface ImageGridProps {
+interface CardGridProps {
   list: HouseItem[]
 }
 
-export const ImageGrid: FC<ImageGridProps> = ({ list }) => {
+export const CardGrid: FC<CardGridProps> = ({ list }) => {
   return (
     <div className="grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {list.map((listItem, index) => (
-        <GridItem key={`grid item ${index}`} {...listItem} />
+        <Card key={`grid item ${index}`} {...listItem} />
       ))}
     </div>
   )
 }
 
-const GridItem: FC<HouseItem> = ({ label, imageSources, href, ...rest }) => {
+const Card: FC<HouseItem> = ({ label, imageSources, href, ...rest }) => {
   return (
     <div>
       <div className="flex justify-center bg-muted rounded p-2">

@@ -58,7 +58,7 @@ const MowerContent = () => {
 
 const BasicsContent = () => {
   return (
-    <div className="text-center">
+    <div>
       <p>We have supplied a battery powered mower and trimmer</p>
       <br />
       <p>
@@ -71,7 +71,7 @@ const BasicsContent = () => {
 
 const RecommendationsContent = () => {
   return (
-    <div className="text-center">
+    <div>
       <p>
         We recommend to mow the lawn every 2-4 weeks depending on the time of
         year, this will mean that the lawn will be maintained at a height the
