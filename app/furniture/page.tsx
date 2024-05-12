@@ -1,34 +1,34 @@
 import { ImageGrid } from '@/components/ui/ImageGrid'
 import { HouseItem } from '@/lib/types'
+import { getMappedHouseItems } from '@/lib/utils'
 
 const FurniturePage = () => {
-  const furnitureUrl = (url: string) =>
-    `https://7-headington-rd.s3.eu-west-2.amazonaws.com/furniture/${url}.jpg`
-
-  const furniture: HouseItem[] = [
+  const furnitureItems: HouseItem[] = [
     {
       label: 'Table',
-      imageSrc: furnitureUrl('table1'),
+      imageSources: ['table1'],
       brand: 'Diagone',
       model: 'Table Manchester',
     },
     {
       label: 'Couch',
-      imageSrc: furnitureUrl('couch2'),
+      imageSources: ['couch2'],
     },
     {
       label: 'Coffee Table',
-      imageSrc: furnitureUrl('coffee-table3'),
+      imageSources: ['coffee-table3'],
       brand: 'Birlea',
       model: 'Compton 4 Drawer Coffee Table',
     },
     {
       label: 'Pantry',
-      imageSrc: furnitureUrl('pantry1'),
+      imageSources: ['pantry1'],
     },
   ]
 
-  return <ImageGrid list={furniture} />
+  const mappedFurnitureItems = getMappedHouseItems(furnitureItems, 'furniture')
+
+  return <ImageGrid list={mappedFurnitureItems} />
 }
 
 export default FurniturePage

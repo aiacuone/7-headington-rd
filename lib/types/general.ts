@@ -1,6 +1,6 @@
-export interface HouseItem {
+export interface HouseItem extends Partial<Record<string, any>> {
   label: string
-  imageSrc: string
+  imageSources: string[]
   brand?: string
   model?: string
   location?: string

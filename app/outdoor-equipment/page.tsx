@@ -1,34 +1,43 @@
 import { ImageGrid } from '@/components/ui/ImageGrid'
 import { HouseItem } from '@/lib/types'
+import { getMappedHouseItems } from '@/lib/utils'
 
 const OutdoorEquipmentPage = () => {
-  const outdoorEquipmentUrl = (url: string) =>
-    `https://7-headington-rd.s3.eu-west-2.amazonaws.com/outdoor-equipment/${url}.jpg`
-
-  const furniture: HouseItem[] = [
+  const outdoorEquipmentItems: HouseItem[] = [
     {
       label: 'Mower',
-      imageSrc: outdoorEquipmentUrl('mower1'),
+      imageSources: ['mower1'],
+      brand: 'Greenworks',
+      model: 'G40LM41',
     },
     {
       label: 'Trimmer',
-      imageSrc: outdoorEquipmentUrl('trimmer1'),
+      imageSources: ['trimmer1'],
+      brand: 'Greenworks',
+      model: 'G40LT',
     },
     {
       label: 'Ladder',
-      imageSrc: outdoorEquipmentUrl('ladder1'),
+      imageSources: ['ladder1'],
+      brand: 'Werner',
+      height: '6 Foot',
     },
     {
       label: 'Extension Ladder',
-      imageSrc: outdoorEquipmentUrl('extension-ladder1'),
+      imageSources: ['extension-ladder1'],
     },
     {
       label: 'Broom',
-      imageSrc: outdoorEquipmentUrl('broom'),
+      imageSources: ['broom'],
     },
   ]
 
-  return <ImageGrid list={furniture} />
+  const mappedOutdoorEquipmentItems = getMappedHouseItems(
+    outdoorEquipmentItems,
+    'outdoor-equipment'
+  )
+
+  return <ImageGrid list={mappedOutdoorEquipmentItems} />
 }
 
 export default OutdoorEquipmentPage

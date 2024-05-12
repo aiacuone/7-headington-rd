@@ -1,4 +1,5 @@
 import { HouseItem } from '@/lib/types'
+import { capitalizeString } from '@/lib/utils/string'
 import Image from 'next/image'
 import { FC } from 'react'
 
@@ -9,23 +10,19 @@ interface ImageGridProps {
 export const ImageGrid: FC<ImageGridProps> = ({ list }) => {
   return (
     <div className="grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      {list.map(({ label, imageSrc }, index) => (
-        <GridItem
-          key={`grid item ${index}`}
-          label={label}
-          imageSrc={imageSrc}
-        />
+      {list.map((listItem, index) => (
+        <GridItem key={`grid item ${index}`} {...listItem} />
       ))}
     </div>
   )
 }
 
-interface GridItemsProps extends Record<string, string> {
-  label: string
-  imageSrc: string
-}
-
-const GridItem: FC<GridItemsProps> = ({ label, imageSrc, ...rest }) => {
+const GridItem: FC<HouseItem> = ({
+  label,
+  imageSrc,
+  imageSources,
+  ...rest
+}) => {
   return (
     <div className="flex justify-center">
       <div className="stack gap-3">
@@ -33,7 +30,7 @@ const GridItem: FC<GridItemsProps> = ({ label, imageSrc, ...rest }) => {
         <div className="center">
           <Image
             alt={`${label} Image`}
-            src={imageSrc}
+            src={imageSources[0]}
             width={300}
             height={300}
             className="rounded-sm"
@@ -41,7 +38,12 @@ const GridItem: FC<GridItemsProps> = ({ label, imageSrc, ...rest }) => {
         </div>
         <ul>
           {Object.entries(rest).map(([key, value], index) => (
-            <li key={`item ${index}`}>{`${key}: ${value}`}</li>
+            <li key={`item ${index}`}>
+              <div className="hstack gap-2">
+                <p className="font-bold">{capitalizeString(key)}:</p>
+                <p>{value}</p>
+              </div>
+            </li>
           ))}
         </ul>
       </div>
