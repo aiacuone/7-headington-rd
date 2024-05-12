@@ -10,7 +10,7 @@ export const Header = () => {
   const headerTitle = currentPage?.text
 
   return (
-    <header className="dark:bg-slate-900 bg-slate-50 p-2 relative center">
+    <header className="bg-muted p-2 relative center h-[70px]">
       <div className="w-full max-w-screen-lg hstack">
         <div className="center">
           <p>7 Headington Rd</p>

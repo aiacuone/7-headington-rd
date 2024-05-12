@@ -21,7 +21,7 @@ export const Footer = () => {
 
   return (
     <>
-      <div className="p-2 dark:bg-slate-900 bg-slate-50 center ">
+      <div className="p-2 bg-muted center h-[70px]">
         <div className="w-full center max-w-screen-lg">
           <Button onClick={toggle}>
             <Menu />

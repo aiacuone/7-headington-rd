@@ -1,28 +1,14 @@
 'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { FC, ReactNode, useCallback, useRef, useState } from 'react'
-import { useMainContext } from './Main'
+import { FC, ReactNode, useRef, useState } from 'react'
 
 interface CustomTabsProps {
   tabs: Array<{ label: string; content: string | ReactNode }>
 }
 
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
-  const { mainContainerHeight } = useMainContext()
-  const maxTabContainerHeight = mainContainerHeight - 60 // 60 is the height of the tabs
   const [preventScrollIssue, setPreventScrollIssue] = useState(false)
   const tabsContent = useRef<HTMLDivElement>(null)
-
-  const onResize = useCallback(() => {
-    // This is to ensure that when the tab content does not exceed scrollable height, the content is centered
-    const tabsContentHeight = tabsContent.current?.clientHeight
-
-    if (tabsContentHeight && tabsContentHeight >= maxTabContainerHeight) {
-      setPreventScrollIssue(true)
-    } else {
-      setPreventScrollIssue(false)
-    }
-  }, [maxTabContainerHeight, tabsContent])
 
   return (
     <Tabs
@@ -46,10 +32,7 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
       ))}
       <TabsList>
         {tabs.map(({ label }, index) => (
-          <TabsTrigger
-            value={label}
-            key={`tab trigger ${index}`}
-            onClick={onResize}>
+          <TabsTrigger value={label} key={`tab trigger ${index}`}>
             {label}
           </TabsTrigger>
         ))}

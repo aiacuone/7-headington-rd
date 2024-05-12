@@ -20,34 +20,37 @@ export const ImageGrid: FC<ImageGridProps> = ({ list }) => {
 
 const GridItem: FC<HouseItem> = ({ label, imageSources, href, ...rest }) => {
   return (
-    <div className="flex justify-center bg-slate-50 dark:bg-slate-900 rounded px-2">
-      <div className="stack gap-3">
-        <h3>{label}</h3>
-        <div className="center">
-          <Image
-            alt={`${label} Image`}
-            src={imageSources[0]}
-            width={300}
-            height={300}
-            className="rounded-sm"
-          />
+    <div>
+      <div className="flex justify-center bg-muted rounded p-2">
+        <div className="stack gap-3">
+          <h3>{label}</h3>
+          <div className="center">
+            <Image
+              alt={`${label} Image`}
+              src={imageSources[0]}
+              width={300}
+              height={300}
+              className="rounded-sm"
+            />
+          </div>
+          <ul>
+            {Object.entries(rest).map(([key, value], index) => (
+              <li key={`item ${index}`}>
+                <div className="hstack gap-2">
+                  <p className="font-bold">{capitalizeString(key)}:</p>
+                  <p>{value}</p>
+                </div>
+              </li>
+            ))}
+            {href && (
+              <Link href={href} target="_blank">
+                Link
+              </Link>
+            )}
+          </ul>
         </div>
-        <ul>
-          {Object.entries(rest).map(([key, value], index) => (
-            <li key={`item ${index}`}>
-              <div className="hstack gap-2">
-                <p className="font-bold">{capitalizeString(key)}:</p>
-                <p>{value}</p>
-              </div>
-            </li>
-          ))}
-          {href && (
-            <Link href={href} target="_blank">
-              Link
-            </Link>
-          )}
-        </ul>
       </div>
+      <div className="h-[10px]" />
     </div>
   )
 }
