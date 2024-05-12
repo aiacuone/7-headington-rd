@@ -7,9 +7,6 @@ interface CustomTabsProps {
 }
 
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
-  const [preventScrollIssue, setPreventScrollIssue] = useState(false)
-  const tabsContent = useRef<HTMLDivElement>(null)
-
   return (
     <Tabs
       defaultValue={tabs[0].label}
@@ -19,14 +16,8 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
           value={label}
           key={`tab content ${index}`}
           className="flex-1 overflow-y-scroll hide-scrollbar">
-          <div
-            className="stack h-full"
-            style={{
-              justifyContent: preventScrollIssue ? 'start' : 'center',
-            }}>
-            <div id="tabs-content" ref={tabsContent} className="center">
-              <div>{content}</div>
-            </div>
+          <div className="stack h-full">
+            <div className="flex-1 center">{content}</div>
           </div>
         </TabsContent>
       ))}
