@@ -38,7 +38,7 @@ export const CardGrid: FC<CardGridProps> = ({ list }) => {
 }
 
 const Card: FC<HouseItem> = (houseItem) => {
-  const { label, imageSources, href, ...rest } = houseItem
+  const { label, imageSources, href } = houseItem
   const { onOpen, isOpen, toggle } = useDisclosure()
 
   return (
@@ -74,6 +74,7 @@ interface CardDialogProps {
 
 const CardDialog: FC<CardDialogProps> = ({ open, onOpenChange, houseItem }) => {
   const { imageSources, label, href, ...rest } = houseItem
+  const showCarousel = imageSources.length > 1
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -81,25 +82,23 @@ const CardDialog: FC<CardDialogProps> = ({ open, onOpenChange, houseItem }) => {
         <DialogHeader>
           <DialogTitle>{label}</DialogTitle>
           <DialogDescription>
-            <Carousel>
-              <CarouselContent>
-                {imageSources.map((imageSource, index) => (
-                  <CarouselItem
-                    key={`carousel image ${index}`}
-                    className="center">
-                    <Image
-                      src={imageSource}
-                      alt={`${label} Image ${index}`}
-                      width={500}
-                      height={300}
-                      className={''}
-                    />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
+            {showCarousel ? (
+              <Carousel>
+                <CarouselContent>
+                  {imageSources.map((imageSource, index) => (
+                    <CarouselItem
+                      key={`carousel image ${index}`}
+                      className="center">
+                      <DialogImage src={imageSource} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            ) : (
+              <DialogImage src={imageSources[0]} />
+            )}
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -123,5 +122,13 @@ const CardDialog: FC<CardDialogProps> = ({ open, onOpenChange, houseItem }) => {
         </DialogFooter>
       </DialogContent>
     </Dialog>
+  )
+}
+
+const DialogImage: FC<{ src: string }> = ({ src }) => {
+  return (
+    <div className="center">
+      <Image src={src} alt={'House Item Image'} width={500} height={300} />
+    </div>
   )
 }
