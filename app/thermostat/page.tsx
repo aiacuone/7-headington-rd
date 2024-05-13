@@ -39,6 +39,7 @@ const ZonesContent = () => {
         There are 3 zones within the house, each zone is controlled by a
         thermostat
       </p>
+
       <p className="text-left">The 3 zones are:</p>
       <ol>
         {zones.map((zone, index) => (
@@ -61,6 +62,14 @@ const LocationContent = () => {
   return (
     <div className="stack gap-3">
       <p>The thermostats are located in the following locations</p>
+      <Image
+        src={
+          'https://7-headington-rd.s3.eu-west-2.amazonaws.com/other/thermostat1.jpg'
+        }
+        height={300}
+        width={300}
+        alt="Thermostat Image"
+      />
       <ol className="text-left">
         <li>Main Master bedroom</li>
         <li>Secondary Master bedroom</li>

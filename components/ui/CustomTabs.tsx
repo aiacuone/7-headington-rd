@@ -7,6 +7,7 @@ interface CustomTabsProps {
 }
 
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
+  const showTabs = tabs.length > 1
   return (
     <Tabs
       defaultValue={tabs[0].label}
@@ -21,13 +22,15 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
           </div>
         </TabsContent>
       ))}
-      <TabsList>
-        {tabs.map(({ label }, index) => (
-          <TabsTrigger value={label} key={`tab trigger ${index}`}>
-            {label}
-          </TabsTrigger>
-        ))}
-      </TabsList>
+      {showTabs && (
+        <TabsList>
+          {tabs.map(({ label }, index) => (
+            <TabsTrigger value={label} key={`tab trigger ${index}`}>
+              {label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      )}
     </Tabs>
   )
 }

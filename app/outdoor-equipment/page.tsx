@@ -32,7 +32,7 @@ const OutdoorEquipmentPage = () => {
     },
     {
       label: 'Ladder',
-      imageSources: ['ladder1'],
+      imageSources: ['ladder1', 'ladder2'],
       brand: 'Werner',
       height: '6 Foot',
       href: 'https://www.amazon.co.uk/dp/B07H9BQQ8V?psc=1&ref=ppx_yo2ov_dt_b_product_details',
