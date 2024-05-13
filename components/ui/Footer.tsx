@@ -23,7 +23,7 @@ export const Footer = () => {
     <>
       <div className="p-2 bg-muted center h-[70px]">
         <div className="w-full center max-w-screen-lg">
-          <Button onClick={toggle}>
+          <Button onClick={toggle} className="h-10">
             <Menu />
           </Button>
         </div>

@@ -6,7 +6,7 @@ const OutdoorEquipmentPage = () => {
   const outdoorEquipmentItems: HouseItem[] = [
     {
       label: 'Mower',
-      imageSources: ['mower1'],
+      imageSources: ['mower1', 'mower2', 'mower3'],
       brand: 'Greenworks',
       model: 'G40LM41',
       href: 'https://www.amazon.co.uk/gp/product/B06WW7CLX3/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1',
@@ -27,7 +27,7 @@ const OutdoorEquipmentPage = () => {
     },
     {
       label: 'Extension Ladder',
-      imageSources: ['extension-ladder1'],
+      imageSources: ['extension-ladder1', 'extension-ladder2'],
       href: 'https://www.amazon.co.uk/gp/product/B0BWFCXVHZ/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&th=1',
     },
     {

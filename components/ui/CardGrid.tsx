@@ -9,52 +9,100 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
 import { useDisclosure } from '@/lib/hooks'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import { Button } from './button'
 
 interface CardGridProps {
   list: HouseItem[]
 }
 
 export const CardGrid: FC<CardGridProps> = ({ list }) => {
+  return (
+    <div className="grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {list.map((listItem, index) => {
+        return <Card key={`grid item ${index}`} {...listItem} />
+      })}
+    </div>
+  )
+}
+
+const Card: FC<HouseItem> = (houseItem) => {
+  const { label, imageSources, href, ...rest } = houseItem
   const { onOpen, isOpen, toggle } = useDisclosure()
+
   return (
     <>
-      <div className="grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {list.map((listItem, index) => (
-          <Card onClick={onOpen} key={`grid item ${index}`} {...listItem} />
-        ))}
+      <div>
+        <div className="flex justify-center bg-muted rounded p-2">
+          <div className="stack gap-3">
+            <h3>{label}</h3>
+            <div className="center">
+              <Image
+                alt={`${label} Image`}
+                src={imageSources[0]}
+                width={300}
+                height={400}
+                className="rounded-sm"
+              />
+            </div>
+            <Button onClick={onOpen}>View</Button>
+          </div>
+        </div>
+        <div className="h-[10px]" />
       </div>
-      <CardDialog open={isOpen} onOpenChange={toggle} />
+      <CardDialog open={isOpen} onOpenChange={toggle} houseItem={houseItem} />
     </>
   )
 }
 
-const Card: FC<HouseItem & { onClick: () => void }> = ({
-  label,
-  imageSources,
-  href,
-  onClick,
-  ...rest
-}) => {
+interface CardDialogProps {
+  open: boolean
+  onOpenChange: () => void
+  houseItem: HouseItem
+}
+
+const CardDialog: FC<CardDialogProps> = ({ open, onOpenChange, houseItem }) => {
+  const { imageSources, label, href, ...rest } = houseItem
+
   return (
-    <div>
-      <div
-        onClick={onClick}
-        className="flex justify-center bg-muted rounded p-2 cursor-pointer">
-        <div className="stack gap-3">
-          <h3>{label}</h3>
-          <div className="center">
-            <Image
-              alt={`${label} Image`}
-              src={imageSources[0]}
-              width={300}
-              height={300}
-              className="rounded-sm"
-            />
-          </div>
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="w-full sm:w-[500px]">
+        <DialogHeader>
+          <DialogTitle>{label}</DialogTitle>
+          <DialogDescription>
+            <Carousel>
+              <CarouselContent>
+                {imageSources.map((imageSource, index) => (
+                  <CarouselItem
+                    key={`carousel image ${index}`}
+                    className="center">
+                    <Image
+                      src={imageSource}
+                      alt={`${label} Image ${index}`}
+                      width={500}
+                      height={300}
+                      className={''}
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
           <ul>
             {Object.entries(rest).map(([key, value], index) => (
               <li key={`item ${index}`}>
@@ -65,34 +113,14 @@ const Card: FC<HouseItem & { onClick: () => void }> = ({
               </li>
             ))}
             {href && (
-              <Link href={href} target="_blank">
-                Link
-              </Link>
+              <li>
+                <Link href={href} target="_blank">
+                  Link
+                </Link>
+              </li>
             )}
           </ul>
-        </div>
-      </div>
-      <div className="h-[10px]" />
-    </div>
-  )
-}
-
-interface CardDialogProps {
-  open: boolean
-  onOpenChange: () => void
-}
-
-const CardDialog: FC<CardDialogProps> = ({ open, onOpenChange }) => {
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </DialogDescription>
-        </DialogHeader>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )
