@@ -14,10 +14,6 @@ const DoorsPage = () => {
       content:
         'Rotate the locking mechanism clockwise, the push the handle down. Note, pushing the handle down from a position where the handle is all the way up will have resistance, this is normal.',
     },
-    {
-      label: 'Keys',
-      content: 'There are 3 different keys for the house',
-    },
   ]
 
   return <CustomTabs tabs={tabs} />

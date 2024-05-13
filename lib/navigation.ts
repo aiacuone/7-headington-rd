@@ -1,7 +1,8 @@
 export const navigation = [
+  { text: 'Keys', href: '/keys' },
   { text: 'Bins', href: '/bins' },
   { text: 'Contact', href: '/contact' },
-  { text: 'Heating', href: '/heating' },
+  { text: 'Thermostat', href: '/thermostat' },
   { text: 'Internet', href: '/internet' },
   { text: 'Doors', href: '/doors' },
   { text: 'Lawn', href: '/lawn' },

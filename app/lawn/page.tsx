@@ -1,23 +1,11 @@
 import { CustomTabs } from '@/components/ui/CustomTabs'
-import { ListItems } from '@/components/ui/ListItems'
+import Image from 'next/image'
 
 const LawnPage = () => {
   const tabs = [
     {
       label: 'Basics',
       content: <BasicsContent />,
-    },
-    {
-      label: 'Mower',
-      content: <MowerContent />,
-    },
-    {
-      label: 'Trimmer',
-      content: <TimmerContent />,
-    },
-    {
-      label: 'Batteries',
-      content: <BatteriesContent />,
     },
     {
       label: 'Recommendations',
@@ -30,37 +18,16 @@ const LawnPage = () => {
 
 export default LawnPage
 
-const BatteriesContent = () => {
-  const listItems = [
-    ['Amount', '2'],
-    ['Voltage', '40V'],
-  ]
-  return <ListItems items={listItems} mappingKey="battery" />
-}
-
-const TimmerContent = () => {
-  const listItems = [
-    ['Brand', 'Greenworks'],
-    ['Model', 'G40LT'],
-  ]
-  return <ListItems items={listItems} mappingKey="trimmer" />
-}
-
-const MowerContent = () => {
-  const listItems = [
-    ['Brand', 'Greenworks'],
-    ['Model', 'G40LM41K2X'],
-    ['Voltage', '40V'],
-    ['Cutting', 'Mulching, Rear Discharge, Rear Collection'],
-  ]
-  return <ListItems items={listItems} mappingKey="mower" />
-}
-
 const BasicsContent = () => {
   return (
-    <div>
+    <div className="stack gap-6 center">
       <p>We have supplied a battery powered mower and trimmer</p>
-      <br />
+      <Image
+        src="https://7-headington-rd.s3.eu-west-2.amazonaws.com/outdoor-equipment/mower2.jpg"
+        alt="Mower Image"
+        height={300}
+        width={300}
+      />
       <p>
         The reason for not supplying a petrol powered mower is to ensure that
         the neighbours are not disturbed by the noise and fumes
