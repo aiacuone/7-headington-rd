@@ -44,7 +44,9 @@ const Card: FC<HouseItem> = (houseItem) => {
   return (
     <>
       <div>
-        <div className="flex justify-center bg-muted rounded p-2">
+        <button
+          className="flex justify-center bg-muted rounded p-2"
+          onClick={onOpen}>
           <div className="stack gap-3">
             <h3>{label}</h3>
             <div className="center">
@@ -58,7 +60,7 @@ const Card: FC<HouseItem> = (houseItem) => {
             </div>
             <Button onClick={onOpen}>View</Button>
           </div>
-        </div>
+        </button>
         <div className="h-[10px]" />
       </div>
       <CardDialog open={isOpen} onOpenChange={toggle} houseItem={houseItem} />

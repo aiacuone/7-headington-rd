@@ -6,7 +6,7 @@ const AppliancesPage = () => {
   const applianceItems: HouseItem[] = [
     {
       label: 'Ovens',
-      imageSources: ['oven1', 'oven2'],
+      imageSources: ['oven1'],
     },
     {
       label: 'Washing Machine',

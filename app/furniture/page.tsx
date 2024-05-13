@@ -12,11 +12,11 @@ const FurniturePage = () => {
     },
     {
       label: 'Couch',
-      imageSources: ['couch2'],
+      imageSources: ['couch1'],
     },
     {
       label: 'Coffee Table',
-      imageSources: ['coffee-table3'],
+      imageSources: ['coffee-table1', 'coffee-table2'],
       brand: 'Birlea',
       model: 'Compton 4 Drawer Coffee Table',
     },
