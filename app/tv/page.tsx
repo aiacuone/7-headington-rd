@@ -4,12 +4,11 @@ const TvPage = () => {
   const tabs = [
     {
       label: 'Basics',
-      content:
-        'We have not supplied a TV license. If you require a TV license, please contact us here....',
-    },
-    {
-      label: 'Recommendations',
-      content: <RecommendationsContent />,
+      content: [
+        'The TV should be set up to use services such as Netflix and Amazon',
+        'It is connected to the wifi and can be used to stream content from the internet',
+        'The TV uses chromecast to stream content from the internet',
+      ],
     },
   ]
 
@@ -17,16 +16,3 @@ const TvPage = () => {
 }
 
 export default TvPage
-
-const RecommendationsContent = () => {
-  return (
-    <div>
-      <p>The TV should be connected to the wifi.</p>
-      <br />
-      <p>
-        It works well with chromecast, which can be used to stream Netflix and
-        Youtube
-      </p>
-    </div>
-  )
-}

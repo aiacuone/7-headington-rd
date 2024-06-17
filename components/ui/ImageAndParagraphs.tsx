@@ -9,7 +9,9 @@ export const ImageAndParagraphs: FC<ImageAndParagraphsProps> = ({ items }) => {
   return (
     <div className="stack gap-6">
       {items.map(([paragraph, imageSource], index) => (
-        <div key={`keyImageAndParaphs item ${index}`} className="center stack">
+        <div
+          key={`keyImageAndParaphs item ${index}`}
+          className="center stack bg-muted p-2">
           <p>{paragraph}</p>
           <Image
             src={imageSource}

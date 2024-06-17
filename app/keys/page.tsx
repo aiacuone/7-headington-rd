@@ -2,7 +2,6 @@
 
 import { CustomTabs } from '@/components/ui/CustomTabs'
 import { ImageAndParagraphs } from '@/components/ui/ImageAndParagraphs'
-import Image from 'next/image'
 
 const KeysPage = () => {
   const tabs = [

@@ -1,6 +1,6 @@
 'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, useState } from 'react'
 
 interface CustomTabsProps {
   tabs: Array<{ label: string; content: string | ReactNode }>
@@ -8,9 +8,13 @@ interface CustomTabsProps {
 
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
   const showTabs = tabs.length > 1
+  const [selectedTab, setSelectedTab] = useState(tabs[0].label)
+  const onChangeTab = (label: string) => setSelectedTab(label)
+
   return (
     <Tabs
       defaultValue={tabs[0].label}
+      value={selectedTab}
       className="w-full sm:w-[650px] stack gap-3 h-full">
       {tabs.map(({ label, content }, index) => (
         <TabsContent
@@ -18,14 +22,30 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
           key={`tab content ${index}`}
           className="flex-1 overflow-y-scroll hide-scrollbar">
           <div className="stack h-full">
-            <div className="flex-1 center">{content}</div>
+            <div className="flex-1 center stack gap-10">
+              <div className="hstack gap-3">
+                <p className="font-bold text-lg">{selectedTab}</p>
+              </div>
+              <div className="bg-muted p-4 rounded">
+                {Array.isArray(content) ? (
+                  content.map((item, index) => (
+                    <div key={`content ${index}`}>{item}</div>
+                  ))
+                ) : (
+                  <div>{content}</div>
+                )}
+              </div>
+            </div>
           </div>
         </TabsContent>
       ))}
       {showTabs && (
         <TabsList>
           {tabs.map(({ label }, index) => (
-            <TabsTrigger value={label} key={`tab trigger ${index}`}>
+            <TabsTrigger
+              value={label}
+              key={`tab trigger ${index}`}
+              onClick={() => onChangeTab(label)}>
               {label}
             </TabsTrigger>
           ))}

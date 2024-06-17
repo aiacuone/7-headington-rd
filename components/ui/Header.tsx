@@ -16,7 +16,11 @@ export const Header = () => {
           <p>7 Headington Rd</p>
         </div>
         <div className="flex-1 center gap-3">
-          <p className="absolute text-center w-full left-0">{headerTitle}</p>
+          <div className="hstack gap-3">
+            <p className="absolute text-center w-full left-0 font-bold">
+              {headerTitle}
+            </p>
+          </div>
         </div>
         <ModeToggle />
       </div>
