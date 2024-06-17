@@ -16,11 +16,10 @@ Purpose
   - Broom [x]
   - Material Box []
 - Contact details
-  - Agent []
-  - Landlord []
+  - Application [x]
 - Internet- [x]
   - Password [x]
-  - Coax Adapter []
+  <!-- - Coax Adapter [] -->
   - Accessing Router [x]
 - Appliances
 
@@ -42,7 +41,7 @@ Purpose
     - How to use []
     - Make model []
   - Thermostat
-    - How to use []
+    - Manual [x]
     - Battery [x]
     - Locations [x]
     - Zones [x]
@@ -117,11 +116,9 @@ Purpose
 Todo:
 
 - Confirm if the garden waste bin goes out on recyling day []
-- Move TV to appliance section
-- Move thermostat to appliance section
-- Move router to appliance section
-- Move security cameras to appliance section
-- Put the tabs at the top of the page
+- Move security cameras to appliance section []
+- Confirm what thermostat model it is []
+- Change the tab to be primary color []
 
 \* Bugs
 Home page has a -Welcome at top []

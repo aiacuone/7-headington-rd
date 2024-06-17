@@ -24,13 +24,29 @@ import {
 import { Button } from './button'
 
 interface CardGridProps {
-  list: HouseItem[]
+  cardsList: HouseItem[]
+  s3NestKey: string
 }
 
-export const CardGrid: FC<CardGridProps> = ({ list }) => {
+export const CardGrid: FC<CardGridProps> = ({ cardsList, s3NestKey }) => {
+  const getHouseItemImageUrl = (houseItem: string) => {
+    return `https://7-headington-rd.s3.eu-west-2.amazonaws.com/${s3NestKey}/${houseItem}.jpg`
+  }
+
+  const getMappedHouseItems = (houseItems: HouseItem[]) => {
+    return houseItems.map((item) => {
+      return {
+        ...item,
+        imageSources: item.imageSources?.map((houseItem) =>
+          getHouseItemImageUrl(houseItem)
+        ),
+      }
+    })
+  }
+
   return (
     <div className="grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      {list.map((listItem, index) => {
+      {getMappedHouseItems(cardsList).map((listItem, index) => {
         return <Card key={`grid item ${index}`} {...listItem} />
       })}
     </div>
@@ -38,7 +54,7 @@ export const CardGrid: FC<CardGridProps> = ({ list }) => {
 }
 
 const Card: FC<HouseItem> = (houseItem) => {
-  const { label, imageSources, href } = houseItem
+  const { label, imageSources } = houseItem
   const { onOpen, isOpen, toggle } = useDisclosure()
 
   return (
