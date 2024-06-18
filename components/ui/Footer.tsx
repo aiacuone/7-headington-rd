@@ -1,6 +1,6 @@
 'use client'
 
-import { Home, Menu } from 'lucide-react'
+import { Home, Loader2, Menu } from 'lucide-react'
 import { Button } from './button'
 import { useDisclosure } from '@/lib/hooks'
 import {
@@ -15,9 +15,20 @@ import {
 import { navigation } from '@/lib/navigation'
 import { useRouter } from 'next/navigation'
 import { FC } from 'react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 export const Footer = () => {
   const { isOpen, onClose, toggle } = useDisclosure()
+
+  const { data: session, status } = useSession()
+
+  const handleLoginAndLogout = async () => {
+    if (session) {
+      signOut()
+    } else {
+      signIn()
+    }
+  }
 
   return (
     <>
@@ -27,6 +38,15 @@ export const Footer = () => {
             <Menu />
           </Button>
         </div>
+        <Button onClick={handleLoginAndLogout} className="z-10">
+          {status === 'loading' ? (
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          ) : session ? (
+            'Logout'
+          ) : (
+            'Login'
+          )}
+        </Button>
       </div>
       <FooterDrawer isOpen={isOpen} onClose={onClose} />
     </>
