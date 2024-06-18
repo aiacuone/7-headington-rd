@@ -1,22 +1,49 @@
 'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { useAuth } from '@/lib/hooks/useAuth'
 import { FC, ReactNode, useState } from 'react'
 
 interface CustomTabsProps {
-  tabs: Array<{ label: string; content: string | ReactNode }>
+  tabs: Array<{
+    label: string
+    content: string | ReactNode
+    isAdminOnly?: boolean
+    isTenantOnly?: boolean
+    isTenantOrAgentOnly?: boolean
+  }>
 }
 
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
-  const showTabsAndHeader = tabs.length > 1
-  const [selectedTab, setSelectedTab] = useState(tabs[0].label)
+  const { isAdmin, isTenant, isAgent } = useAuth()
+
+  const filteredTabs = tabs.filter(
+    ({ isAdminOnly, isTenantOrAgentOnly, isTenantOnly }) => {
+      if (isAdminOnly) {
+        return isAdmin
+      }
+
+      if (isTenantOrAgentOnly) {
+        return isAdmin || isTenant || isAgent
+      }
+
+      if (isTenantOnly) {
+        return isAdmin || isTenant
+      }
+
+      return true
+    }
+  )
+
+  const showTabsAndHeader = filteredTabs.length > 1
+  const [selectedTab, setSelectedTab] = useState(filteredTabs[0]?.label ?? '')
   const onChangeTab = (label: string) => setSelectedTab(label)
 
   return (
     <Tabs
-      defaultValue={tabs[0].label}
+      defaultValue={filteredTabs[0].label}
       value={selectedTab}
       className="w-full sm:w-[650px] stack gap-3 h-full">
-      {tabs.map(({ label, content }, index) => (
+      {filteredTabs.map(({ label, content }, index) => (
         <TabsContent
           value={label}
           key={`tab content ${index}`}
@@ -41,7 +68,7 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
       ))}
       {showTabsAndHeader && (
         <TabsList>
-          {tabs.map(({ label }, index) => (
+          {filteredTabs.map(({ label }, index) => (
             <TabsTrigger
               value={label}
               key={`tab trigger ${index}`}

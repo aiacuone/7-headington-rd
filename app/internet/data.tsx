@@ -34,18 +34,36 @@ const SpeedContent = () => {
 }
 
 const RouterContent = () => {
-  const { toast } = useToast()
+  const mappingData = [
+    ['Brand', 'TP Link'],
+    ['Model', 'HX220'],
+    ['Standard', 'AX1800'],
+    ['Frequency', '2.5 and 5Ghz'],
+  ]
+  return (
+    <div>
+      {mappingData.map(([key, value], index) => (
+        <div
+          className="hstack gap-3"
+          key={`router content mapping data ${index}`}>
+          <p>
+            <b>{key}:</b>
+          </p>
+          <p>{value}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
 
+const ConnectingToRouter = () => {
+  const { toast } = useToast()
   const copyToClipboard = () => {
     navigator.clipboard.writeText('Ghost97Mount')
     toast({ title: 'Copied to clipboard' })
   }
 
   const mappingData = [
-    ['Brand', 'TP Link'],
-    ['Model', 'HX220'],
-    ['Standard', 'AX1800'],
-    ['Frequency', '2.5 and 5Ghz'],
     [
       'Router Settings',
       <a
@@ -66,6 +84,7 @@ const RouterContent = () => {
       'Ghost97Mount',
     ],
   ]
+
   return (
     <div>
       {mappingData.map(([key, value], index) => (
@@ -86,6 +105,7 @@ export const internetTabs = [
   {
     label: 'Password',
     content: <PasswordContent />,
+    isTenantOnly: true,
   },
   {
     label: 'Speed',
@@ -94,5 +114,10 @@ export const internetTabs = [
   {
     label: 'Router',
     content: <RouterContent />,
+  },
+  {
+    label: 'Connecting to Router',
+    content: <ConnectingToRouter />,
+    isAdminOnly: true,
   },
 ]

@@ -10,6 +10,7 @@ const SecurityPage = () => {
     {
       label: 'Getting Connected',
       content: GettingConnectedContent(),
+      isTenantOnly: true,
     },
   ]
 

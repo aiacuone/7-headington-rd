@@ -22,6 +22,7 @@ Purpose
   - Router [x]
     - Make model []
     - Manual []
+    - Location []
   - Speed [x]
   - Manual []
   <!-- - Coax Adapter [] -->

@@ -16,11 +16,12 @@ import { navigation } from '@/lib/navigation'
 import { useRouter } from 'next/navigation'
 import { FC } from 'react'
 import { useSession, signIn, signOut } from 'next-auth/react'
+import { useAuth } from '@/lib/hooks/useAuth'
 
 export const Footer = () => {
   const { isOpen, onClose, toggle } = useDisclosure()
-
   const { data: session, status } = useSession()
+  const { hasAccess } = useAuth()
 
   const handleLoginAndLogout = async () => {
     if (session) {
@@ -33,18 +34,19 @@ export const Footer = () => {
   return (
     <>
       <div className="p-2 bg-muted center h-[70px]">
-        <div className="w-full center max-w-screen-xl">
-          <Button onClick={toggle} className="h-10">
+        {hasAccess && (
+          <Button onClick={toggle} className="h-10 absolute">
             <Menu />
           </Button>
-        </div>
+        )}
+        <div className="flex-1"></div>
         <Button onClick={handleLoginAndLogout} className="z-10">
           {status === 'loading' ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : session ? (
-            'Logout'
+            'Sign Out'
           ) : (
-            'Login'
+            'Sign In'
           )}
         </Button>
       </div>
@@ -77,7 +79,7 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
           </div>
         </DrawerHeader>
         <DrawerFooter className="center">
-          <div className="h-[300px] sm:h-auto overflow-y-scroll stack gap-3 hide-scrollbar">
+          <div className="overflow-y-scroll stack gap-3 hide-scrollbar">
             {navigation.map(({ text, href }, index) => (
               <Button
                 onClick={() => onClickLink(href)}

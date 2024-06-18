@@ -8,6 +8,7 @@ const KeysPage = () => {
     {
       label: 'Keys',
       content: <KeysContent />,
+      isTenantOrAgentOnly: true,
     },
   ]
 
