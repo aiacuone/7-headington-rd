@@ -7,7 +7,7 @@ interface CustomTabsProps {
 }
 
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
-  const showTabs = tabs.length > 1
+  const showTabsAndHeader = tabs.length > 1
   const [selectedTab, setSelectedTab] = useState(tabs[0].label)
   const onChangeTab = (label: string) => setSelectedTab(label)
 
@@ -23,9 +23,9 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
           className="flex-1 overflow-y-scroll hide-scrollbar">
           <div className="stack h-full">
             <div className="flex-1 center stack gap-10">
-              <div className="hstack gap-3">
+              {showTabsAndHeader && (
                 <p className="font-bold text-lg">{selectedTab}</p>
-              </div>
+              )}
               <div className="bg-muted p-4 rounded">
                 {Array.isArray(content) ? (
                   content.map((item, index) => (
@@ -39,7 +39,7 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
           </div>
         </TabsContent>
       ))}
-      {showTabs && (
+      {showTabsAndHeader && (
         <TabsList>
           {tabs.map(({ label }, index) => (
             <TabsTrigger

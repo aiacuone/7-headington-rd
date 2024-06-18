@@ -22,14 +22,9 @@ const RecommendationsContent = () => {
   return (
     <div className="text-center center stack gap-6">
       <p>
-        We recommend to mow the lawn every 2-4 weeks depending on the time of
-        year, this will mean that the lawn will be maintained at a height the
-        mower can easily cut.
-      </p>
-      <p>
-        At higher lengths, the mower can struggle on higher lawns, meaning it
-        may turn off whilst mowing, and it can take up to 3-4 batteries to mow
-        the lawn
+        We recommend to mow the lawn every 2-4 weeks at the <i>highest</i> level
+        depending on the time of year, this will mean that the lawn will be
+        maintained at a height the mower can easily cut.
       </p>
       <Image
         src={

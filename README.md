@@ -19,35 +19,37 @@ Purpose
   - Application [x]
 - Internet- [x]
   - Password [x]
+  - Router [x]
+    - Make model []
+    - Manual []
+  - Speed [x]
+  - Manual []
   <!-- - Coax Adapter [] -->
-  - Accessing Router [x]
 - Appliances
 
   - Washing Machine []
-    - How to use []
     - Make model []
+    - Manual []
   - Ovens
-    - How to use []
     - Make model []
+    - Manual []
   - TV
-    - How to use []
     - Make model []
-    - Chromecast and Remote []
-    - Wifi []
+    - Manual []
   - Dishwasher
     - How to use []
     - Make model []
   - Hot Water
-    - How to use []
     - Make model []
+    - Manual []
   - Thermostat
     - Manual [x]
     - Battery [x]
     - Locations [x]
     - Zones [x]
   - Router
-    - How to use []
     - Make model []
+    - Manual []
   - Security Cameras
     - Locations []
     - Getting Connected []
@@ -119,6 +121,7 @@ Todo:
 - Move security cameras to appliance section []
 - Confirm what thermostat model it is []
 - Change the tab to be primary color []
+- Take a photo of the grass at a higher length []
 
 \* Bugs
 Home page has a -Welcome at top []

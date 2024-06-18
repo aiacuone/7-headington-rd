@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <header className="bg-muted p-2 relative center h-[70px]">
-      <div className="w-full max-w-screen-lg hstack">
+      <div className="w-full max-w-screen-xl hstack">
         <div className="center">
           <p>7 Headington Rd</p>
         </div>

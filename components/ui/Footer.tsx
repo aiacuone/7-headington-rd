@@ -22,7 +22,7 @@ export const Footer = () => {
   return (
     <>
       <div className="p-2 bg-muted center h-[70px]">
-        <div className="w-full center max-w-screen-lg">
+        <div className="w-full center max-w-screen-xl">
           <Button onClick={toggle} className="h-10">
             <Menu />
           </Button>
@@ -49,7 +49,7 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
     <Drawer open={isOpen}>
       <DrawerContent onBlur={onClose}>
         <DrawerHeader className="center">
-          <div className="w-full max-w-screen-lg">
+          <div className="w-full max-w-screen-xl">
             <DrawerTitle>Select an option</DrawerTitle>
             <DrawerDescription>
               Navigate the app by selecting an option
