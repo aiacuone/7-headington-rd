@@ -21,4 +21,12 @@ export const furnitureItems: HouseItem[] = [
     label: 'Pantry',
     imageSources: ['pantry1'],
   },
+  {
+    label: 'Shoe Rack',
+    imageSources: ['shoe-rack1', 'shoe-rack2'],
+  },
+  {
+    label: 'Coat Hanger',
+    imageSources: ['coat-hanger1', 'coat-hanger2'],
+  },
 ]
