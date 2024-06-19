@@ -4,5 +4,5 @@ export interface HouseItem {
   brand?: string
   model?: string
   location?: string
-  link?: string
+  href?: string
 }

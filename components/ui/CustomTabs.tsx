@@ -70,6 +70,7 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
         <TabsList>
           {filteredTabs.map(({ label }, index) => (
             <TabsTrigger
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               value={label}
               key={`tab trigger ${index}`}
               onClick={() => onChangeTab(label)}>

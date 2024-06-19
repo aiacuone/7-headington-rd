@@ -24,25 +24,19 @@ Purpose
     - Manual []
     - Location []
   - Speed [x]
-  - Manual []
   <!-- - Coax Adapter [] -->
 - Appliances
 
-  - Washing Machine []
-    - Make model []
-    - Manual []
+  - Washing Machine [x]
+    - Make model [x]
   - Ovens
-    - Make model []
-    - Manual []
+    - Make model [x]
   - TV
-    - Make model []
-    - Manual []
+    - Make model [x]
   - Dishwasher
-    - How to use []
-    - Make model []
+    - Make model [x]
   - Hot Water
-    - Make model []
-    - Manual []
+    - Make model [x]
     - Electric Backup []
   - Thermostat
     - Manual [x]
@@ -54,12 +48,12 @@ Purpose
     - Manual []
   - Security Cameras
     - Locations []
-    - Getting Connected []
-    - Privacy []
+    - Getting Connected [x]
+    - Privacy [x]
     <!-- - Coax Adapter
     - Locations [] -->
   - Range Hood
-    - Make model []
+    - Make model [x]
   - Kitchen Water Heater
     - Make model []
 
@@ -70,8 +64,8 @@ Purpose
   - Pantry [x]
   - Dressers []
   - TV Table []
-  - Shoe Rack []
-  - Coat Hanger []
+  - Shoe Rack [x]
+  - Coat Hanger [x]
   - Office seat []
   - Office desk []
 - Keys
@@ -92,19 +86,19 @@ Purpose
 - Pantry- [x]
 - Dressers- []
 - TV Table- []
-- Shoe Rack- []
-- Coat Hanger- []
+- Shoe Rack- [x]
+- Coat Hanger- [x]
 
 \*\*Appliances
 
 - Mower- [x]
 - Trimmer- [x]
-- TV- []
+- TV- [x]
 - 6 Foot Ladder- [x]
 - Extension Ladder- [x]
-- Range Hood- []
-- Water Heater- []
-- Kitchen Water Heater- []
+- Range Hood- [x]
+- Water Heater- [x]
+- Kitchen Water Heater- [x]
 - Router- []
 - Fibre Box- []
 - Washing Machine- [x]
@@ -115,14 +109,14 @@ Purpose
 - Keys- [x]
 - Thermostat- [x]
 - Thermostat Battery- [x]
-- Coax to ethernet adapter - []
+<!-- - Coax to ethernet adapter - [] -->
 
 Todo:
 
 - Confirm if the garden waste bin goes out on recyling day []
-- Move security cameras to appliance section []
+<!-- - Move security cameras to appliance section [] -->
 - Confirm what thermostat model it is []
-- Change the tab to be primary color []
+- Change the tab to be primary color [x]
 - Take a photo of the grass at a higher length []
 
 \* Bugs
