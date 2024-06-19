@@ -1,9 +1,13 @@
-import { Paragraphs } from '@/components/Paragraphs'
+import { ParagraphImage, Paragraphs } from '@/components/Paragraphs'
 import { CustomTabs } from '@/components/ui/CustomTabs'
 
 const Basics = () => {
   const paragraphs = [
     'The TV should be set up to use services such as Netflix and Amazon',
+    <ParagraphImage
+      src="https://7-headington-rd.s3.eu-west-2.amazonaws.com/appliances/tv1.jpg"
+      key="tv"
+    />,
     'It is connected to the Wifi and can be used to stream content from the internet',
     'The TV uses chromecast to stream content from the Internet',
   ]

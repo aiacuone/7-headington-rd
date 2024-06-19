@@ -51,7 +51,9 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
           <div className="stack h-full">
             <div className="flex-1 center stack gap-10">
               {showTabsAndHeader && (
-                <p className="font-bold text-lg">{selectedTab}</p>
+                <p className="font-bold text-lg hidden sm:block">
+                  {selectedTab}
+                </p>
               )}
               <div className="bg-muted p-4 rounded">
                 {Array.isArray(content) ? (

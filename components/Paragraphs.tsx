@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { ReactNode } from 'react'
 
 export const Paragraphs = ({
@@ -13,6 +14,28 @@ export const Paragraphs = ({
 
         return paragraph
       })}
+    </div>
+  )
+}
+
+export const ParagraphImage = ({
+  src,
+  key,
+  size = 500,
+}: {
+  src: string
+  key: string
+  size?: number
+}) => {
+  return (
+    <div className="center" key="lawn mower image">
+      <Image
+        src={src}
+        width={size}
+        height={size}
+        alt={`${key} image`}
+        className="rounded"
+      />
     </div>
   )
 }
