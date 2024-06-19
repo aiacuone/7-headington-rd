@@ -1,3 +1,4 @@
+import { KeyValuePair, KeyValuePairs } from '@/components/ui/KeyValuePairs'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
 import { Clipboard } from 'lucide-react'
@@ -34,36 +35,24 @@ const SpeedContent = () => {
 }
 
 const RouterContent = () => {
-  const mappingData = [
+  const keyValuePairs = [
     ['Brand', 'TP Link'],
     ['Model', 'HX220'],
     ['Standard', 'AX1800'],
     ['Frequency', '2.5 and 5Ghz'],
   ]
-  return (
-    <div>
-      {mappingData.map(([key, value], index) => (
-        <div
-          className="hstack gap-3"
-          key={`router content mapping data ${index}`}>
-          <p>
-            <b>{key}:</b>
-          </p>
-          <p>{value}</p>
-        </div>
-      ))}
-    </div>
-  )
+
+  return <KeyValuePairs keyValuePairs={keyValuePairs} mappingKey="router" />
 }
 
 const ConnectingToRouter = () => {
   const { toast } = useToast()
   const copyToClipboard = () => {
-    navigator.clipboard.writeText('Ghost97Mount')
+    navigator.clipboard.writeText(process.env.ROUTER_PASSWORD as string)
     toast({ title: 'Copied to clipboard' })
   }
 
-  const mappingData = [
+  const keyValuePairs: KeyValuePair[] = [
     [
       'Router Settings',
       <a
@@ -76,7 +65,7 @@ const ConnectingToRouter = () => {
     [
       'Router Settings Password',
       <div className="hstack center gap-3" key="router settings link">
-        <p>Ghost97Mount</p>
+        <p>{process.env.ROUTER_PASSWORD}</p>
         <Button onClick={copyToClipboard} className="h-8">
           <Clipboard size="15px" />
         </Button>
@@ -85,20 +74,7 @@ const ConnectingToRouter = () => {
     ],
   ]
 
-  return (
-    <div>
-      {mappingData.map(([key, value], index) => (
-        <div
-          className="hstack gap-3"
-          key={`router content mapping data ${index}`}>
-          <p>
-            <b>{key}:</b>
-          </p>
-          <p>{value}</p>
-        </div>
-      ))}
-    </div>
-  )
+  return <KeyValuePairs keyValuePairs={keyValuePairs} mappingKey="router" />
 }
 
 export const internetTabs = [

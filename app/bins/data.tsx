@@ -1,4 +1,5 @@
 import { Paragraphs } from '@/components/Paragraphs'
+import { KeyValuePairs } from '@/components/ui/KeyValuePairs'
 
 const CollectionDayContent = () => {
   const binDays = [
@@ -10,13 +11,7 @@ const CollectionDayContent = () => {
   return (
     <div className="stack gap-3">
       <p>Refuse collection days are as follows</p>
-      <div className="stack">
-        {binDays.map((binDay, index) => (
-          <p key={`bin day ${index}`}>
-            <b>{binDay[0]}:</b> {binDay[1]}
-          </p>
-        ))}
-      </div>
+      <KeyValuePairs keyValuePairs={binDays} mappingKey="bin" />
       <p className="">
         Refer to this{' '}
         <a

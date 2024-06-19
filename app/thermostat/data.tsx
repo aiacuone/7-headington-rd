@@ -26,7 +26,10 @@ const ZonesContent = () => {
         ))}
       </ol>
       <p>Each zone is controlled by the following thermostat</p>
-      <KeyValuePairs items={thermostatKeyValuePairs} mappingKey="thermostat" />
+      <KeyValuePairs
+        keyValuePairs={thermostatKeyValuePairs}
+        mappingKey="thermostat"
+      />
     </div>
   )
 }
@@ -53,7 +56,7 @@ const DetailsContent = () => {
     ['Power', '2x AA Batteries'],
   ]
 
-  return <KeyValuePairs items={details} mappingKey="thermostat" />
+  return <KeyValuePairs keyValuePairs={details} mappingKey="thermostat" />
 }
 
 const Battery = () => {

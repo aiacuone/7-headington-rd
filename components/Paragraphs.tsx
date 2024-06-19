@@ -8,7 +8,10 @@ export const Paragraphs = ({
   return (
     <div className="stack gap-3">
       {paragraphs.map((paragraph, index) => {
-        return <p key={`paragraph ${index}`}>{paragraph}</p>
+        if (typeof paragraph === 'string')
+          return <p key={`paragraph ${index}`}>{paragraph}</p>
+
+        return paragraph
       })}
     </div>
   )

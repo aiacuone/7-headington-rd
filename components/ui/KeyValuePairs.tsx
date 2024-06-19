@@ -1,28 +1,35 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
+
+export type KeyValuePair = (string | ReactNode)[]
 
 interface KeyValuePairsProps {
-  items: string[][]
+  keyValuePairs: KeyValuePair[]
   mappingKey: string
   isKeyBold?: boolean
 }
 
 export const KeyValuePairs: FC<KeyValuePairsProps> = ({
-  items,
+  keyValuePairs,
   mappingKey,
   isKeyBold = true,
 }) => {
   return (
     <ul>
-      {items.map(([key, value], index) => (
-        <li key={`${mappingKey} item ${index}`}>
-          <div className="hstack gap-2">
-            <p className={`${isKeyBold ? 'font-bold' : ''} whitespace-nowrap`}>
-              {key}
-            </p>
-            <p className="text-left">{value}</p>
-          </div>
-        </li>
-      ))}
+      {keyValuePairs.map(([key, value], index) => {
+        const isValueAString = typeof value === 'string'
+
+        return (
+          <li key={`${mappingKey} item ${index}`}>
+            <div className="hstack gap-2 items-center">
+              <p
+                className={`${isKeyBold ? 'font-bold' : ''} whitespace-nowrap`}>
+                {key}
+              </p>
+              {isValueAString ? <p className="text-left">{value}</p> : value}
+            </div>
+          </li>
+        )
+      })}
     </ul>
   )
 }
