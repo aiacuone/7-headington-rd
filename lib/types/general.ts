@@ -5,4 +5,5 @@ export interface HouseItem {
   model?: string
   location?: string
   href?: string
+  height?: string
 }
