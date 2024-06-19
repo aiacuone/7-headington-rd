@@ -43,6 +43,7 @@ Purpose
   - Hot Water
     - Make model []
     - Manual []
+    - Electric Backup []
   - Thermostat
     - Manual [x]
     - Battery [x]
@@ -55,8 +56,8 @@ Purpose
     - Locations []
     - Getting Connected []
     - Privacy []
-  - Coax Adapter
-    - Locations []
+    <!-- - Coax Adapter
+    - Locations [] -->
   - Range Hood
     - Make model []
   - Kitchen Water Heater
