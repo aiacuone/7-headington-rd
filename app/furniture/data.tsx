@@ -29,4 +29,28 @@ export const furnitureItems: HouseItem[] = [
     label: 'Coat Hanger',
     imageSources: ['coat-hanger1', 'coat-hanger2'],
   },
+  {
+    label: 'Office Seat',
+    imageSources: ['office-seat1', 'office-seat2'],
+  },
+  {
+    label: 'Office Desk',
+    imageSources: ['desk1'],
+  },
+  {
+    label: 'Bed',
+    imageSources: ['bed1'],
+  },
+  {
+    label: 'Blue Dresser',
+    imageSources: ['blue-dresser1', 'blue-dresser2'],
+  },
+  {
+    label: 'Pink Dresser',
+    imageSources: ['pink-dresser1', 'pink-dresser2'],
+  },
+  {
+    label: 'TV Stand Cupboard',
+    imageSources: ['tv-stand-cupboard1', 'tv-stand-cupboard2'],
+  },
 ]

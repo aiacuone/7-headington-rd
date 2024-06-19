@@ -1,19 +1,22 @@
+import { Paragraphs } from '@/components/Paragraphs'
 import { KeyValuePairs } from '@/components/ui/KeyValuePairs'
-import Image from 'next/image'
 
 const ZonesContent = () => {
-  const zones = ['Downstairs', 'Upstairs', 'Underfloor heating']
+  const zones = [
+    'Downstairs',
+    'Upstairs East (Master Side)',
+    'Upstairs West (Small Master Side)',
+  ]
   const thermostatKeyValuePairs = [
     ['Downstairs', 'Outside under stair storage'],
-    ['Upstairs First Half', 'Main Master'],
-    ['Upstairs Second Half', 'Secondary Master'],
+    ['Upstairs East', 'Master Room'],
+    ['Upstairs West', 'Small Master Room'],
   ]
 
   return (
     <div className="stack gap-3">
       <p>
-        There are 3 zones within the house, each zone is controlled by a
-        thermostat
+        There are 3 Thermostats that control the heating in the following zones
       </p>
       <ol>
         {zones.map((zone, index) => (
@@ -23,32 +26,7 @@ const ZonesContent = () => {
         ))}
       </ol>
       <p>Each zone is controlled by the following thermostat</p>
-      <KeyValuePairs
-        items={thermostatKeyValuePairs}
-        mappingKey="thermostat"
-        isKeyBold={false}
-      />
-    </div>
-  )
-}
-
-const LocationContent = () => {
-  return (
-    <div className="stack gap-3">
-      <p>The thermostats are located in the following locations</p>
-      <Image
-        src={
-          'https://7-headington-rd.s3.eu-west-2.amazonaws.com/other/thermostat1.jpg'
-        }
-        height={300}
-        width={300}
-        alt="Thermostat Image"
-      />
-      <ol className="text-left">
-        <li>Main Master bedroom</li>
-        <li>Secondary Master bedroom</li>
-        <li>Outside the under stair storage</li>
-      </ol>
+      <KeyValuePairs items={thermostatKeyValuePairs} mappingKey="thermostat" />
     </div>
   )
 }
@@ -57,7 +35,7 @@ const ManualContent = () => {
   return (
     <div>
       <p>
-        Please refer to the manual{' '}
+        The Thermostat manual can be found{' '}
         <a
           href="https://www.free-instruction-manuals.com/pdf/pa_2431884.pdf"
           target="_blank">
@@ -78,6 +56,15 @@ const DetailsContent = () => {
   return <KeyValuePairs items={details} mappingKey="thermostat" />
 }
 
+const Battery = () => {
+  const paragraphs = [
+    'The thermostats are powered by 2x AA batteries',
+    'To replace the batteries, lift the flap from the bottom of the unit then pull down the battery cover at the bottom of the unit.',
+  ]
+
+  return <Paragraphs paragraphs={paragraphs} />
+}
+
 export const thermostatTabs = [
   {
     label: 'Details',
@@ -88,13 +75,8 @@ export const thermostatTabs = [
     content: <ZonesContent />,
   },
   {
-    label: 'Locations',
-    content: <LocationContent />,
-  },
-  {
     label: 'Battery',
-    content:
-      'Please note that the thermostats are powered by 2x AA batteries. To replace the batteries, lift the flap from the bottom of the unit then pull down the battery cover at the bottom of the unit. Refer to the images below for more information',
+    content: <Battery />,
   },
   {
     label: 'Manual',

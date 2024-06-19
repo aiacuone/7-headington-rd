@@ -66,7 +66,7 @@ Purpose
   - TV Table []
   - Shoe Rack [x]
   - Coat Hanger [x]
-  - Office seat []
+  - Office seat [x]
   - Office desk []
 - Keys
   - All keys [x]
@@ -77,15 +77,15 @@ Purpose
 \*Photos
 \*\*Furniture
 
-- Office seat- []
+- Office seat- [x]
 - Office desk- []
-- Bed- []
+- Bed- [x]
 - Couch- [x]
 - Coffee Table- [x]
 - Table- [x]
 - Pantry- [x]
-- Dressers- []
-- TV Table- []
+- Dressers- [x]
+- TV Table- [x]
 - Shoe Rack- [x]
 - Coat Hanger- [x]
 
