@@ -21,11 +21,11 @@ export const KeyValuePairs: FC<KeyValuePairsProps> = ({
         return (
           <li key={`${mappingKey} item ${index}`}>
             <div className="hstack gap-2 items-center">
-              <p
-                className={`${isKeyBold ? 'font-bold' : ''} whitespace-nowrap`}>
-                {key}
+              <p>
+                {isKeyBold ? <b>{key}</b> : key}
+                {isValueAString && ` ${value}`}
               </p>
-              {isValueAString ? <p className="text-left">{value}</p> : value}
+              {!isValueAString && value}
             </div>
           </li>
         )

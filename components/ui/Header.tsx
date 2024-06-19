@@ -17,7 +17,7 @@ export const Header = () => {
       <div className="w-full max-w-screen-xl hstack">
         <div className="center">{hasAccess && <p>7 Headington Rd</p>}</div>
         <div className="flex-1 center gap-3">
-          <div className="hstack gap-3">
+          <div className="center">
             <p className="absolute text-center w-full left-0 font-bold">
               {hasAccess && headerTitle}
             </p>

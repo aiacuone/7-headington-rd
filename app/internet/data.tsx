@@ -63,7 +63,7 @@ const ConnectingToRouter = () => {
       </a>,
     ],
     [
-      'Router Settings Password',
+      'Router Password',
       <div className="hstack center gap-3" key="router settings link">
         <p>{process.env.ROUTER_PASSWORD}</p>
         <Button onClick={copyToClipboard} className="h-8">

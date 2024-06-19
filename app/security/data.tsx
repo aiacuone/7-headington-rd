@@ -1,17 +1,17 @@
 import { Paragraphs } from '@/components/Paragraphs'
 
 const GettingConnected = () => {
+  const getConnectedHref =
+    'mailTo=aiacuone@gmail.com?subject=7 Headington Rd Security Camera Connection&body=Hello, I am a tenant and would like to get connected to the security cameras using this email address (type email address here please)'
+
   const paragraphs = [
     <p key="getting connect paragraph">
       To get connected to the security cameras, please send an email{' '}
-      <a href="mailTo=aiacuone@gmail.com?subject=7 Headington Rd Security Camera Connection&body=Hello, I am a tenant and would like to get connected to the security cameras using this email address (type email address here please)">
-        here
-      </a>{' '}
-      with your email address
+      <a href={getConnectedHref}>here</a> with the email address you used to
+      connect to the Eufy application
     </p>,
     'Please note, that you will need to download the Eufy application on your phone to get connected',
-    'Please provide your preferred email address in the email',
-    'Getting connected to the app will enable you to answer the door from your app, it will also enable you to view the cameras and recorded events',
+    'Getting connected to the app will enable you to answer the door from the app, it will also enable you to view the cameras and recorded events',
   ]
 
   return <Paragraphs paragraphs={paragraphs} />

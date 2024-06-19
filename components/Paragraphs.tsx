@@ -7,7 +7,7 @@ export const Paragraphs = ({
   paragraphs: (string | ReactNode)[]
 }) => {
   return (
-    <div className="stack gap-3">
+    <div className="stack gap-3 text-center">
       {paragraphs.map((paragraph, index) => {
         if (typeof paragraph === 'string')
           return <p key={`paragraph ${index}`}>{paragraph}</p>
