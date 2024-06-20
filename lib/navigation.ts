@@ -5,7 +5,8 @@ interface NavigationItem {
 }
 
 export const navigation: NavigationItem[] = [
-  { text: 'Keys', href: '/keys', isAgentOnly: true },
+  { text: 'Keys', href: '/keys' },
+  // { text: 'Keys', href: '/keys', isAgentOnly: true },
   { text: 'Bins', href: '/bins' },
   { text: 'Contact', href: '/contact' },
   { text: 'Thermostat', href: '/thermostat' },
