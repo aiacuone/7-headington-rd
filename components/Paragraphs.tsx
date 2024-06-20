@@ -1,15 +1,31 @@
 import Image from 'next/image'
 import { ReactNode } from 'react'
 
+interface ParagraphProps {
+  paragraphs: (string | ReactNode)[]
+  hasHeader?: boolean
+}
+
 export const Paragraphs = ({
   paragraphs,
-}: {
-  paragraphs: (string | ReactNode)[]
-}) => {
+  hasHeader = false,
+}: ParagraphProps) => {
   return (
     <div className="stack gap-3 text-center">
       {paragraphs.map((paragraph, index) => {
-        if (typeof paragraph === 'string')
+        const isFirstIndex = index === 0
+        const isParagraphAString = typeof paragraph === 'string'
+
+        if (isFirstIndex && hasHeader)
+          return (
+            <p
+              key={`paragraph ${index}`}
+              className="text-lg sm:text-xl font-bold">
+              {paragraph}
+            </p>
+          )
+
+        if (isParagraphAString)
           return <p key={`paragraph ${index}`}>{paragraph}</p>
 
         return paragraph
