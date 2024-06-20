@@ -13,17 +13,19 @@ export const config = {
 
 export default withAuth(
   function middleware(request: NextRequestWithAuth) {
-    const restrictedPage = navigation.find(
-      (page) => page.href === request.nextUrl.pathname
-    )
-    const isRestrictedPage = !!restrictedPage
+    const isAdmin = request.nextauth.token?.role === Role.admin
+    const isRestrictedPage = restrictedPages.includes(request.nextUrl.pathname)
 
     if (isRestrictedPage) {
-      if (request.nextauth.token?.role === Role.admin) {
+      if (isAdmin) {
         return NextResponse.next()
       }
 
-      const isUserAuthorized = restrictedPage.restrictedRoles?.includes(
+      const restrictedPage = navigation.find(
+        (page) => page.href === request.nextUrl.pathname
+      )
+
+      const isUserAuthorized = restrictedPage?.restrictedRoles?.includes(
         request.nextauth.token?.role as Role
       )
 

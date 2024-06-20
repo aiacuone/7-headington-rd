@@ -1,4 +1,4 @@
-import { roles } from '../hooks/useAuth'
+import { roles } from '../roles'
 import { Role } from '../types/user'
 
 export const getUserRole = (email: string) => {

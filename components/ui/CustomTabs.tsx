@@ -1,38 +1,25 @@
 'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useAuth } from '@/lib/hooks/useAuth'
+import { Role } from '@/lib/types/user'
 import { FC, ReactNode, useState } from 'react'
 
 interface CustomTabsProps {
   tabs: Array<{
     label: string
     content: string | ReactNode
-    isAdminOnly?: boolean
-    isTenantOnly?: boolean
-    isTenantOrAgentOnly?: boolean
+    restrictedRoles?: Role[]
   }>
 }
 
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
-  const { isAdmin, isTenant, isAgent } = useAuth()
+  const { role, isAdmin } = useAuth()
 
-  const filteredTabs = tabs.filter(
-    ({ isAdminOnly, isTenantOrAgentOnly, isTenantOnly }) => {
-      if (isAdminOnly) {
-        return isAdmin
-      }
+  const filteredTabs = tabs.filter(({ restrictedRoles }) => {
+    if (!restrictedRoles || isAdmin) return true
 
-      if (isTenantOrAgentOnly) {
-        return isAdmin || isTenant || isAgent
-      }
-
-      if (isTenantOnly) {
-        return isAdmin || isTenant
-      }
-
-      return true
-    }
-  )
+    return restrictedRoles.includes(role)
+  })
 
   const showTabsAndHeader = filteredTabs.length > 1
   const [selectedTab, setSelectedTab] = useState(filteredTabs[0]?.label ?? '')

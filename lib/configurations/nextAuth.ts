@@ -2,8 +2,8 @@ import { NextAuthOptions } from 'next-auth'
 // import AppleProvider from 'next-auth/providers/apple'
 // import FacebookProvider from 'next-auth/providers/facebook'
 import GoogleProvider from 'next-auth/providers/google'
-import { roles } from '../hooks/useAuth'
 import { getUserRole } from '../utils/user'
+import { roles } from '../roles'
 // import EmailProvider from 'next-auth/providers/email'
 
 export const nextAuthConfiguration: NextAuthOptions = {

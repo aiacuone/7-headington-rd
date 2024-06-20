@@ -1,4 +1,5 @@
 import { Paragraphs } from '@/components/Paragraphs'
+import { Role } from '@/lib/types/user'
 
 const GettingConnected = () => {
   const getConnectedHref =
@@ -34,6 +35,6 @@ export const securityTabs = [
   {
     label: 'Getting Connected',
     content: <GettingConnected />,
-    isTenantOnly: true,
+    restrictedRoles: [Role.tenant],
   },
 ]

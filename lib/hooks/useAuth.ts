@@ -17,9 +17,3 @@ export const useAuth = () => {
     role: data?.user.role as Role,
   }
 }
-
-export const roles: Record<Role, string[]> = {
-  [Role.admin]: ['aiacuone@gmail.com', 'dahya.d@gmail.com'],
-  [Role.tenant]: [],
-  [Role.agent]: [],
-}
