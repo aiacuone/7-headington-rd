@@ -1,5 +1,11 @@
-export const navigation = [
-  { text: 'Keys', href: '/keys' },
+interface NavigationItem {
+  text: string
+  href: string
+  isAgentOnly?: boolean
+}
+
+export const navigation: NavigationItem[] = [
+  { text: 'Keys', href: '/keys', isAgentOnly: true },
   { text: 'Bins', href: '/bins' },
   { text: 'Contact', href: '/contact' },
   { text: 'Thermostat', href: '/thermostat' },

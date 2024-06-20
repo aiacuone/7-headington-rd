@@ -3,7 +3,6 @@
 import { ModeToggle } from '../ModeToggle'
 import { usePathname } from 'next/navigation'
 import { navigation } from '@/lib/navigation'
-import { useSession } from 'next-auth/react'
 import { useAuth } from '@/lib/hooks/useAuth'
 
 export const Header = () => {

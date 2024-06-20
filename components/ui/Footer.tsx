@@ -12,11 +12,11 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from '@/components/ui/drawer'
-import { navigation } from '@/lib/navigation'
 import { useRouter } from 'next/navigation'
 import { FC } from 'react'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useAuth } from '@/lib/hooks/useAuth'
+import { useFilteredNavigation } from '@/lib/hooks/useFilteredNavigation'
 
 export const Footer = () => {
   const { isOpen, onClose, toggle } = useDisclosure()
@@ -67,6 +67,9 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
     onClose()
     push(href)
   }
+
+  const filteredNavigation = useFilteredNavigation()
+
   return (
     <Drawer open={isOpen}>
       <DrawerContent onBlur={onClose}>
@@ -80,7 +83,7 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
         </DrawerHeader>
         <DrawerFooter className="center">
           <div className="overflow-y-scroll stack gap-3 hide-scrollbar">
-            {navigation.map(({ text, href }, index) => (
+            {filteredNavigation.map(({ text, href }, index) => (
               <Button
                 onClick={() => onClickLink(href)}
                 className="sm:min-w-[250px] min-w-full"
