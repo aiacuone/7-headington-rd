@@ -1,33 +1,29 @@
 import { NextRequestWithAuth, withAuth } from 'next-auth/middleware'
 import { NextResponse } from 'next/server'
 import { Role } from './lib/types/user'
+import { navigation } from './lib/navigation'
 
-interface RestrictedPageAccessItem {
-  route: string
-  roles: Role[]
-}
-
-export const roleRestrictedPageAccess: RestrictedPageAccessItem[] = [
-  { route: '/keys', roles: [Role.agent] },
-]
+const restrictedPages = navigation
+  .filter((page) => page.restrictedRoles)
+  .map((page) => page.href)
 
 export const config = {
-  matcher: roleRestrictedPageAccess.map((route) => route.route),
+  matcher: restrictedPages,
 }
 
 export default withAuth(
   function middleware(request: NextRequestWithAuth) {
-    const restrictedAccessRoute = roleRestrictedPageAccess.find(
-      (route) => route.route === request.nextUrl.pathname
+    const restrictedPage = navigation.find(
+      (page) => page.href === request.nextUrl.pathname
     )
-    const isRestrictedAccessRoute = !!restrictedAccessRoute
+    const isRestrictedPage = !!restrictedPage
 
-    if (isRestrictedAccessRoute) {
-      if (request.nextauth.token?.role === 'admin') {
+    if (isRestrictedPage) {
+      if (request.nextauth.token?.role === Role.admin) {
         return NextResponse.next()
       }
 
-      const isUserAuthorized = restrictedAccessRoute?.roles.includes(
+      const isUserAuthorized = restrictedPage.restrictedRoles?.includes(
         request.nextauth.token?.role as Role
       )
 

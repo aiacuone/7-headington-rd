@@ -3,3 +3,8 @@ export enum Role {
   tenant = 'tenant',
   agent = 'agent',
 }
+
+export interface RestrictedPage {
+  route: string
+  roles: Role[]
+}

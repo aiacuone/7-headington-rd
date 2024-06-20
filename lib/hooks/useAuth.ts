@@ -14,6 +14,7 @@ export const useAuth = () => {
     isAgent,
     hasAccess: isAdmin || isTenant || isAgent,
     isSignedIn: !!data,
+    role: data?.user.role as Role,
   }
 }
 
