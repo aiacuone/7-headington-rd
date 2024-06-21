@@ -82,4 +82,18 @@ export const applianceItems: HouseItem[] = [
     model: 'LIT604',
     href: 'https://www.electrolux.co.uk/kitchen/cooking/hobs/induction-hob/lit6042/',
   },
+  {
+    label: 'Router',
+    imageSources: ['router1'],
+    brand: 'TP-Link',
+    model: 'HX220',
+  },
+  {
+    label: 'Chromecast',
+    imageSources: ['chromecast1', 'chromecast-remote1'],
+  },
+  {
+    label: 'Door Chime',
+    imageSources: ['door-chime1', 'door-chime2'],
+  },
 ]

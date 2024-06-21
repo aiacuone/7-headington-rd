@@ -8,8 +8,7 @@ export const outdoorEquipmentItems: HouseItem[] = [
       'mower2',
       'mower3',
       'greenworks-batteries-and-charger',
-      'greenworks-battery',
-      'greenworks-charger',
+      'catcher-and-mulcher1',
     ],
     brand: 'Greenworks',
     model: 'G40LM41',
@@ -26,6 +25,18 @@ export const outdoorEquipmentItems: HouseItem[] = [
     brand: 'Greenworks',
     model: 'G40LT',
     href: 'https://www.amazon.co.uk/gp/product/B06WW7DPQ3/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1',
+  },
+  {
+    label: 'Batteries and Charger',
+    imageSources: ['greenworks-batteries-and-charger'],
+  },
+  {
+    label: 'Mower Catcher',
+    imageSources: ['catcher1'],
+  },
+  {
+    label: 'Mower Mulcher',
+    imageSources: ['mulcher1'],
   },
   {
     label: 'Ladder',

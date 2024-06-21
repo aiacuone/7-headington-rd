@@ -63,9 +63,6 @@ const AgentWelcome = () => {
 
 const HouseParagraphImage = () => {
   return (
-    <ParagraphImage
-      src={getHouseItemImageUrl('front', 'house')}
-      key="House Image Front"
-    />
+    <ParagraphImage file="front" s3RouteIndex="house" key="House Image Front" />
   )
 }

@@ -12,7 +12,8 @@ const Lock = () => {
 const Unlock = () => {
   const paragraphs = [
     'The door locking system is not generic.',
-    'Rotate the locking mechanism clockwise, the push the handle down. Note, pushing the handle down from a position where the handle is all the way up will have resistance, this is normal.',
+    'Rotate the locking mechanism clockwise, then push the handle down.',
+    'Note, pushing the handle down from a position where the handle is all the way up will have resistance, this is normal.',
   ]
 
   return <Paragraphs paragraphs={paragraphs} />

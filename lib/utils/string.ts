@@ -5,3 +5,11 @@ export function capitalizeString(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 }
+
+export function ensureFullstop(string: String) {
+  if (string.endsWith('.')) {
+    return string
+  } else {
+    return string + '.'
+  }
+}

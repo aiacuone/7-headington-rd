@@ -1,10 +1,11 @@
+import { ParagraphImage, Paragraphs } from '@/components/Paragraphs'
 import { KeyValuePair, KeyValuePairs } from '@/components/ui/KeyValuePairs'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
 import { Role } from '@/lib/types/user'
 import { Clipboard } from 'lucide-react'
 
-const PasswordContent = () => {
+const Password = () => {
   const { toast } = useToast()
 
   const copyToClipboard = () => {
@@ -24,7 +25,7 @@ const PasswordContent = () => {
   )
 }
 
-const SpeedContent = () => {
+const Speed = () => {
   return (
     <div>
       <p>
@@ -35,7 +36,7 @@ const SpeedContent = () => {
   )
 }
 
-const RouterContent = () => {
+const Router = () => {
   const keyValuePairs = [
     ['Brand', 'TP Link'],
     ['Model', 'HX220'],
@@ -43,7 +44,20 @@ const RouterContent = () => {
     ['Frequency', '2.5 and 5Ghz'],
   ]
 
-  return <KeyValuePairs keyValuePairs={keyValuePairs} mappingKey="router" />
+  const paragraphs = [
+    <KeyValuePairs
+      keyValuePairs={keyValuePairs}
+      mappingKey="router"
+      key="routerKeyValuePairs"
+    />,
+    <ParagraphImage
+      file="router1"
+      s3RouteIndex="appliances"
+      key="router image"
+    />,
+  ]
+
+  return <Paragraphs paragraphs={paragraphs} />
 }
 
 const ConnectingToRouter = () => {
@@ -75,22 +89,35 @@ const ConnectingToRouter = () => {
     ],
   ]
 
-  return <KeyValuePairs keyValuePairs={keyValuePairs} mappingKey="router" />
+  const paragraphs = [
+    <KeyValuePairs
+      keyValuePairs={keyValuePairs}
+      mappingKey="router"
+      key="routerKeyValuePairs"
+    />,
+    <ParagraphImage
+      file="router2"
+      s3RouteIndex="appliances"
+      key="router image"
+    />,
+  ]
+
+  return <Paragraphs paragraphs={paragraphs} />
 }
 
 export const internetTabs = [
   {
     label: 'Password',
-    content: <PasswordContent />,
+    content: <Password />,
     restrictedRoles: [Role.tenant],
   },
   {
     label: 'Speed',
-    content: <SpeedContent />,
+    content: <Speed />,
   },
   {
     label: 'Router',
-    content: <RouterContent />,
+    content: <Router />,
   },
   {
     label: 'Router Connection',

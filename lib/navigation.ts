@@ -9,7 +9,7 @@ interface NavigationItem {
 export const navigation: NavigationItem[] = [
   { text: 'Keys', href: '/keys', restrictedRoles: [Role.agent] },
   { text: 'Bins', href: '/bins' },
-  { text: 'Application Issues', href: '/app-issues' },
+  { text: 'Application', href: '/application' },
   { text: 'Thermostat', href: '/thermostat' },
   { text: 'Internet', href: '/internet' },
   { text: 'Doors', href: '/doors', restrictedRoles: [Role.agent] },

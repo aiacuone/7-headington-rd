@@ -1,4 +1,4 @@
-import { Paragraphs } from '@/components/Paragraphs'
+import { ParagraphImage, Paragraphs } from '@/components/Paragraphs'
 import { KeyValuePairs } from '@/components/ui/KeyValuePairs'
 
 const ZonesContent = () => {
@@ -56,13 +56,31 @@ const DetailsContent = () => {
     ['Power', '2x AA Batteries'],
   ]
 
-  return <KeyValuePairs keyValuePairs={details} mappingKey="thermostat" />
+  const paragraphs = [
+    <KeyValuePairs
+      keyValuePairs={details}
+      mappingKey="thermostat"
+      key="thermostatKeyValuePairs"
+    />,
+    <ParagraphImage
+      file="thermostat1"
+      s3RouteIndex="other"
+      key="thermostat image"
+    />,
+  ]
+
+  return <Paragraphs paragraphs={paragraphs} />
 }
 
 const Battery = () => {
   const paragraphs = [
     'The thermostats are powered by 2x AA batteries',
     'To replace the batteries, lift the flap from the bottom of the unit then pull down the battery cover at the bottom of the unit.',
+    <ParagraphImage
+      file="thermostat3"
+      s3RouteIndex="other"
+      key="thermostat battery"
+    />,
   ]
 
   return <Paragraphs paragraphs={paragraphs} />

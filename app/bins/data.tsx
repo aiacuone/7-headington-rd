@@ -4,8 +4,8 @@ import { KeyValuePairs } from '@/components/ui/KeyValuePairs'
 const CollectionDayContent = () => {
   const binDays = [
     ['General (Green)', 'Every Friday'],
-    ['Recycling (Blue)', 'Every second Friday (same as garden waste)'],
-    ['Garden (Red)', 'Every second Friday (same as recycling)'],
+    ['Recycling (Dark Blue)', 'Every second Friday (same as garden)'],
+    ['Garden (Maroon)', 'Every second Friday (same as recycling)'],
   ]
 
   return (
@@ -27,9 +27,10 @@ const CollectionDayContent = () => {
 
 const GardenWaste = () => {
   const paragraphs = [
-    'Please note that there is a Garden Waste (Red) bin',
+    'Please note that there is a Garden Waste (Maroon) bin',
     'Please do not put garden waste in the general waste bin.',
   ]
+
   return <Paragraphs paragraphs={paragraphs} />
 }
 

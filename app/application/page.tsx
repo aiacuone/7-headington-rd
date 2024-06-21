@@ -1,8 +1,8 @@
 import { CustomTabs } from '@/components/ui/CustomTabs'
 import { appIssuesTabs } from './data'
 
-const AppIssuesPage = () => {
+const ApplicationPage = () => {
   return <CustomTabs tabs={appIssuesTabs} />
 }
 
-export default AppIssuesPage
+export default ApplicationPage

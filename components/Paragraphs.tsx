@@ -1,3 +1,5 @@
+import { getHouseItemImageUrl } from '@/lib/utils'
+import { ensureFullstop } from '@/lib/utils/string'
 import Image from 'next/image'
 import { ReactNode } from 'react'
 
@@ -28,7 +30,7 @@ export const Paragraphs = ({
         if (isParagraphAString)
           return (
             <p className="text-center" key={`paragraph ${index}`}>
-              {paragraph}
+              {ensureFullstop(paragraph)}
             </p>
           )
 
@@ -39,21 +41,21 @@ export const Paragraphs = ({
 }
 
 export const ParagraphImage = ({
-  src,
-  key,
+  file,
+  s3RouteIndex,
   size = 500,
 }: {
-  src: string
-  key: string
+  file: string
+  s3RouteIndex?: string
   size?: number
 }) => {
   return (
     <div className="center" key="lawn mower image">
       <Image
-        src={src}
+        src={getHouseItemImageUrl(file, s3RouteIndex)}
         width={size}
         height={size}
-        alt={`${key} image`}
+        alt={`${file} image`}
         className="rounded"
       />
     </div>

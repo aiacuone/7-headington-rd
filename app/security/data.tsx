@@ -1,5 +1,5 @@
 import { ListItems } from '@/components/ListItems'
-import { Paragraphs } from '@/components/Paragraphs'
+import { ParagraphImage, Paragraphs } from '@/components/Paragraphs'
 import { CardGrid } from '@/components/ui/CardGrid'
 import { HouseItem } from '@/lib/types'
 import { Role } from '@/lib/types/user'
@@ -37,7 +37,7 @@ const GettingConnectedAgent = () => {
 
 const PrivacyTenant = () => {
   const paragraphs = [
-    'We respect the privacy you and the people invited to your home.',
+    'We respect the privacy of you and the people invited to your home.',
     'We dont record any video within the house. The purpose for the cameras is for security and insurance purposes only',
   ]
 
@@ -81,6 +81,26 @@ const Cameras = () => {
   )
 }
 
+const DoorChime = () => {
+  const paragraphs = [
+    'The security system uses a door chime that plugs into a socket outlet',
+    <ParagraphImage
+      file="door-chime1"
+      s3RouteIndex="appliances"
+      key="door chime"
+      size={300}
+    />,
+    <ParagraphImage
+      file="door-chime2"
+      s3RouteIndex="appliances"
+      key="door chime"
+      size={300}
+    />,
+  ]
+
+  return <Paragraphs paragraphs={paragraphs} />
+}
+
 export const securityTabs = [
   {
     label: 'Privacy',
@@ -110,5 +130,9 @@ export const securityTabs = [
     label: 'Cameras',
     content: <Cameras />,
     restrictedRoles: [Role.agent],
+  },
+  {
+    label: 'Door Chime',
+    content: <DoorChime />,
   },
 ]
