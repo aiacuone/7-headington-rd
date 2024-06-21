@@ -17,14 +17,13 @@ const KeysPage = () => {
 export default KeysPage
 
 const KeysContent = () => {
-  const getKeysUrl = (key: string) =>
-    `https://7-headington-rd.s3.eu-west-2.amazonaws.com/keys/${key}.jpg`
   const keyImageAndParagraphs = [
-    ['There are 4 sets of keys', getKeysUrl('all')],
-    ['Back Door', getKeysUrl('back')],
-    ['Front Door', getKeysUrl('front')],
-    ['Shed', getKeysUrl('shed')],
-    ['Windows', getKeysUrl('windows')],
+    ['There are 4 sets of keys', 'all'],
+    ['Front Door', 'front'],
+    ['Back Door', 'back'],
+    ['Shed', 'shed'],
+    ['Windows', 'windows'],
   ]
-  return <ImageAndParagraphs items={keyImageAndParagraphs} />
+
+  return <ImageAndParagraphs items={keyImageAndParagraphs} s3IndexKey="keys" />
 }

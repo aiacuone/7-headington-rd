@@ -6,8 +6,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const getHouseItemImageUrl = (houseItem: string, nestValue: string) => {
-  return `https://7-headington-rd.s3.eu-west-2.amazonaws.com/${nestValue}/${houseItem}.jpg`
+export const getHouseItemImageUrl = (
+  houseItem: string,
+  s3IndexKey?: string
+) => {
+  return `https://7-headington-rd.s3.eu-west-2.amazonaws.com/${
+    s3IndexKey ? `${s3IndexKey}/${houseItem}` : houseItem
+  }.jpg`
 }
 
 export const getMappedHouseItems = (
