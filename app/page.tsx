@@ -1,8 +1,9 @@
 'use client'
 
-import { Paragraphs } from '@/components/Paragraphs'
+import { ParagraphImage, Paragraphs } from '@/components/Paragraphs'
 import { CustomTabs } from '@/components/ui/CustomTabs'
 import { Role } from '@/lib/types/user'
+import { getHouseItemImageUrl } from '@/lib/utils'
 
 export default function Home() {
   const tabs = [
@@ -20,7 +21,11 @@ export default function Home() {
     },
   ]
 
-  return <CustomTabs tabs={tabs} />
+  return (
+    <div className="stack gap-3">
+      <CustomTabs tabs={tabs} />
+    </div>
+  )
 }
 
 const TenantWelcome = () => {
@@ -29,6 +34,7 @@ const TenantWelcome = () => {
     'One of the purposes of this application is to make your time living in the property as easy as possible and to provide you with as much information as you need to feel comfortable and safe',
     'Please note, the information on this application will change depending on the user that is signed in, so you as the tenant will not always see the same information as the agent',
     'Please click on the button at the bottom of the application to get started',
+    <HouseParagraphImage key="House Paragraph Image Tenant" />,
   ]
 
   return (
@@ -45,11 +51,21 @@ const AgentWelcome = () => {
     'The purpose of this application is to provide you and everyone involved with the property as much information as possible to make the process of managing and living within the property as easy as possible',
     'Please note, the information on this application will change depending on the user that is signed in, so you as the agent will not always see the same information as the tenant',
     'Please click on the button at the bottom of the application to get started',
+    <HouseParagraphImage key="House Paragraph Image Agent" />,
   ]
 
   return (
     <div className="stack gap-3">
       <Paragraphs paragraphs={paragraphs} hasHeader />
     </div>
+  )
+}
+
+const HouseParagraphImage = () => {
+  return (
+    <ParagraphImage
+      src={getHouseItemImageUrl('front', 'house')}
+      key="House Image Front"
+    />
   )
 }

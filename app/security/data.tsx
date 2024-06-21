@@ -27,7 +27,7 @@ const GettingConnectedAgent = () => {
   const paragraphs = [
     'If either you or the tenant would like to get connected to the security cameras, please follow these steps:',
     <ListItems list={list} key="security list items" />,
-    'Please note, I will be directing the tenant to you as the agent to get connected to the cameras, this will you will have control over who does or doesnt get connected',
+    'Please allow me to direct the tenant to you to get connected to the app. You as the agent will know who the tenant is and what their email is, you can then pass that information to me and I will connect them',
   ]
 
   return <Paragraphs paragraphs={paragraphs} />

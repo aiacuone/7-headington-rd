@@ -1,7 +1,7 @@
 import { Role } from './types/user'
 
 export const roles: Record<Role, string[]> = {
-  [Role.admin]: ['aiacuone@gmail.com', 'dahya.d@gmail.com'],
+  [Role.admin]: ['dahya.d@gmail.com'],
   [Role.tenant]: [],
-  [Role.agent]: [],
+  [Role.agent]: ['aiacuone@gmail.com'],
 }
