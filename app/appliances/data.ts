@@ -12,7 +12,7 @@ export const applianceItems: HouseItem[] = [
     label: 'Dishwasher',
     brand: 'Electrolux',
     model: 'KEAF7200L',
-    imageSources: ['dishwasher1'],
+    imageSources: ['dishwasher1', 'dishwasher2', 'dishwasher3'],
     href: 'https://www.electrolux.co.uk/kitchen/dishwashing/dishwashers/built-in-dishwasher/keaf7200l/',
   },
   {
@@ -37,7 +37,7 @@ export const applianceItems: HouseItem[] = [
   },
   {
     label: 'Car Charger',
-    imageSources: ['car-charger1'],
+    imageSources: ['car-charger1', 'car-charger12'],
     brand: 'Zaptec',
     model: 'Zaptec Go',
     href: 'https://www.zaptec.com/en-uk/charging-solutions/zaptec-go',

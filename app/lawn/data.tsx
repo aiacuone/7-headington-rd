@@ -18,7 +18,7 @@ const RecommendationsContent = () => {
   const paragraphs = [
     'We recommend to mow the lawn every 2-4 weeks at the highest level depending on the time of year, this will mean that the lawn will be maintained at a height the mower can easily cut.',
     <ParagraphImage
-      src="https://7-headington-rd.s3.eu-west-2.amazonaws.com/other/lawn.jpg"
+      src="https://7-headington-rd.s3.eu-west-2.amazonaws.com/other/lawn1.jpg"
       key="Lawn"
     />,
   ]
