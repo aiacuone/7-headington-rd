@@ -19,4 +19,9 @@ export const navigation: NavigationItem[] = [
   { text: 'Furniture', href: '/furniture' },
   { text: 'Appliances', href: '/appliances' },
   { text: 'Outdoor Equipment', href: '/outdoor-equipment' },
+  {
+    text: 'Security Cameras',
+    href: '/security-cameras',
+    restrictedRoles: [Role.agent],
+  },
 ]

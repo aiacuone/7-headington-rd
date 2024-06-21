@@ -17,7 +17,7 @@ export const applianceItems: HouseItem[] = [
   },
   {
     label: 'Fridge',
-    imageSources: ['fridge1', 'fridge2'],
+    imageSources: ['fridge1'],
     brand: 'Electrolux',
     model: 'LXB3AF82R',
     href: 'https://www.electrolux.co.uk/kitchen/cooling/refrigerators/small-refrigerator/',
