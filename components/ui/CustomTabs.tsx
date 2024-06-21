@@ -72,13 +72,21 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
       ))}
       {showTabsAndHeader && (
         <TabsList>
-          {filteredTabs.map(({ label, key }, index) => (
+          {filteredTabs.map(({ label, key, restrictedRoles }, index) => (
             <TabsTrigger
               className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               value={key ?? label}
               key={`tab trigger ${index}`}
               onClick={() => onChangeTab(key ?? label)}>
-              {label}
+              <div className="hstack gap-1">
+                <p>{label}</p>
+                {isAdmin &&
+                  restrictedRoles?.map((restrictedRole) => (
+                    <p key={`restricted role item ${restrictedRole}`}>
+                      ({capitalizeString(restrictedRole)})
+                    </p>
+                  ))}
+              </div>
             </TabsTrigger>
           ))}
         </TabsList>
