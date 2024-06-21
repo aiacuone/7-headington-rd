@@ -1,4 +1,4 @@
-const ContactContent = () => {
+const AppIssues = () => {
   return (
     <p>
       If there are any issues with this application, please contact{' '}
@@ -9,9 +9,9 @@ const ContactContent = () => {
   )
 }
 
-export const contactTabs = [
+export const appIssuesTabs = [
   {
     label: 'Application Issues',
-    content: <ContactContent />,
+    content: <AppIssues />,
   },
 ]

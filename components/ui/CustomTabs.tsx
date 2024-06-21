@@ -1,41 +1,32 @@
 'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useAuth } from '@/lib/hooks/useAuth'
+import { Role } from '@/lib/types/user'
+import { capitalizeString } from '@/lib/utils/string'
 import { FC, ReactNode, useState } from 'react'
 
 interface CustomTabsProps {
   tabs: Array<{
     label: string
     content: string | ReactNode
-    isAdminOnly?: boolean
-    isTenantOnly?: boolean
-    isTenantOrAgentOnly?: boolean
+    restrictedRoles?: Role[]
+    key?: string
   }>
 }
 
 export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
-  const { isAdmin, isTenant, isAgent } = useAuth()
+  const { role, isAdmin } = useAuth()
 
-  const filteredTabs = tabs.filter(
-    ({ isAdminOnly, isTenantOrAgentOnly, isTenantOnly }) => {
-      if (isAdminOnly) {
-        return isAdmin
-      }
+  const filteredTabs = tabs.filter(({ restrictedRoles }) => {
+    if (!restrictedRoles || isAdmin) return true
 
-      if (isTenantOrAgentOnly) {
-        return isAdmin || isTenant || isAgent
-      }
-
-      if (isTenantOnly) {
-        return isAdmin || isTenant
-      }
-
-      return true
-    }
-  )
+    return restrictedRoles.includes(role)
+  })
 
   const showTabsAndHeader = filteredTabs.length > 1
-  const [selectedTab, setSelectedTab] = useState(filteredTabs[0]?.label ?? '')
+  const [selectedTab, setSelectedTab] = useState(
+    filteredTabs[0]?.key ?? filteredTabs[0]?.label ?? ''
+  )
   const onChangeTab = (label: string) => setSelectedTab(label)
 
   return (
@@ -43,17 +34,28 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
       defaultValue={filteredTabs[0].label}
       value={selectedTab}
       className="w-full sm:w-[650px] stack gap-3 h-full">
-      {filteredTabs.map(({ label, content }, index) => (
+      {filteredTabs.map(({ label, content, key, restrictedRoles }, index) => (
         <TabsContent
-          value={label}
+          value={key ?? label}
           key={`tab content ${index}`}
           className="flex-1 overflow-y-scroll hide-scrollbar">
           <div className="stack h-full">
             <div className="flex-1 center stack gap-10">
               {showTabsAndHeader && (
-                <p className="font-bold text-lg hidden sm:block">
-                  {selectedTab}
-                </p>
+                <div className="hstack gap-2 items-center">
+                  <p className="font-bold text-lg hidden sm:block">
+                    {
+                      filteredTabs.find(
+                        (tab) =>
+                          tab.key === selectedTab || tab.label === selectedTab
+                      )?.label
+                    }
+                  </p>
+                  {isAdmin &&
+                    restrictedRoles?.map((role) => (
+                      <p key={role}>({capitalizeString(role)})</p>
+                    ))}
+                </div>
               )}
               <div className="bg-muted p-4 rounded">
                 {Array.isArray(content) ? (
@@ -70,13 +72,21 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
       ))}
       {showTabsAndHeader && (
         <TabsList>
-          {filteredTabs.map(({ label }, index) => (
+          {filteredTabs.map(({ label, key, restrictedRoles }, index) => (
             <TabsTrigger
               className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-              value={label}
+              value={key ?? label}
               key={`tab trigger ${index}`}
-              onClick={() => onChangeTab(label)}>
-              {label}
+              onClick={() => onChangeTab(key ?? label)}>
+              <div className="hstack gap-1">
+                <p>{label}</p>
+                {isAdmin &&
+                  restrictedRoles?.map((restrictedRole) => (
+                    <p key={`restricted role item ${restrictedRole}`}>
+                      ({capitalizeString(restrictedRole)})
+                    </p>
+                  ))}
+              </div>
             </TabsTrigger>
           ))}
         </TabsList>

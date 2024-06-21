@@ -10,6 +10,7 @@ const Basics = () => {
     />,
     'It is connected to the Wifi and can be used to stream content from the internet',
     'The TV uses chromecast to stream content from the Internet',
+    'You will need to use your own accounts to access the content on the TV',
   ]
 
   return <Paragraphs paragraphs={paragraphs} />

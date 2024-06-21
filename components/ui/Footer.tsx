@@ -17,6 +17,7 @@ import { FC } from 'react'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useAuth } from '@/lib/hooks/useAuth'
 import { useFilteredNavigation } from '@/lib/hooks/useFilteredNavigation'
+import { capitalizeString } from '@/lib/utils/string'
 
 export const Footer = () => {
   const { isOpen, onClose, toggle } = useDisclosure()
@@ -62,6 +63,7 @@ interface FooterDrawerProps {
 
 const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
   const { push } = useRouter()
+  const { isAdmin } = useAuth()
 
   const onClickLink = (href: string) => {
     onClose()
@@ -83,14 +85,25 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
         </DrawerHeader>
         <DrawerFooter className="center">
           <div className="overflow-y-scroll stack gap-3 hide-scrollbar">
-            {filteredNavigation.map(({ text, href }, index) => (
-              <Button
-                onClick={() => onClickLink(href)}
-                className="sm:min-w-[250px] min-w-full"
-                key={`drawer link ${index}`}>
-                {text}
-              </Button>
-            ))}
+            {filteredNavigation.map(
+              ({ text, href, restrictedRoles }, index) => {
+                const hasRestrictedRoles = restrictedRoles
+
+                return (
+                  <Button
+                    onClick={() => onClickLink(href)}
+                    className="sm:min-w-[250px] min-w-full"
+                    key={`drawer link ${index}`}>
+                    {text}{' '}
+                    {isAdmin &&
+                      hasRestrictedRoles &&
+                      restrictedRoles?.map((role) => (
+                        <>({capitalizeString(role)})</>
+                      ))}
+                  </Button>
+                )
+              }
+            )}
           </div>
           <DrawerClose>
             <div className="hstack gap-3">

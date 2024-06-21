@@ -1,6 +1,7 @@
 import { KeyValuePair, KeyValuePairs } from '@/components/ui/KeyValuePairs'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/use-toast'
+import { Role } from '@/lib/types/user'
 import { Clipboard } from 'lucide-react'
 
 const PasswordContent = () => {
@@ -81,7 +82,7 @@ export const internetTabs = [
   {
     label: 'Password',
     content: <PasswordContent />,
-    isTenantOnly: true,
+    restrictedRoles: [Role.tenant],
   },
   {
     label: 'Speed',
@@ -92,8 +93,8 @@ export const internetTabs = [
     content: <RouterContent />,
   },
   {
-    label: 'Connecting to Router',
+    label: 'Router Connection',
     content: <ConnectingToRouter />,
-    isAdminOnly: true,
+    restrictedRoles: [Role.admin],
   },
 ]

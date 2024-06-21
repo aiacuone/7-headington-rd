@@ -121,3 +121,6 @@ Todo:
 
 \* Bugs
 Home page has a -Welcome at top []
+
+Tutorial
+I used the following tutorial to handle the authentication https://www.youtube.com/watch?v=ay-atEUGIc4
