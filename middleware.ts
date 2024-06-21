@@ -30,7 +30,7 @@ export default withAuth(
       )
 
       if (!isUserAuthorized)
-        return NextResponse.rewrite(new URL('/unAuthorised', request.url))
+        return NextResponse.rewrite(new URL('/unauthorized', request.url))
     }
   }
   // {
