@@ -1,5 +1,4 @@
 import { ParagraphImage, Paragraphs } from '@/components/Paragraphs'
-import Image from 'next/image'
 
 const Mower = () => {
   const paragraphs = [

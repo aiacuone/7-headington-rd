@@ -17,7 +17,7 @@ export const applianceItems: HouseItem[] = [
   },
   {
     label: 'Fridge',
-    imageSources: ['fridge1'],
+    imageSources: ['fridge1', 'fridge2'],
     brand: 'Electrolux',
     model: 'LXB3AF82R',
     href: 'https://www.electrolux.co.uk/kitchen/cooling/refrigerators/small-refrigerator/',
@@ -37,7 +37,7 @@ export const applianceItems: HouseItem[] = [
   },
   {
     label: 'Car Charger',
-    imageSources: ['car-charger1', 'car-charger12'],
+    imageSources: ['car-charger1', 'car-charger2'],
     brand: 'Zaptec',
     model: 'Zaptec Go',
     href: 'https://www.zaptec.com/en-uk/charging-solutions/zaptec-go',
