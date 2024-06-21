@@ -26,9 +26,14 @@ import { Button } from './button'
 interface CardGridProps {
   cardsList: HouseItem[]
   s3NestKey: string
+  gridCols?: [number, number, number]
 }
 
-export const CardGrid: FC<CardGridProps> = ({ cardsList, s3NestKey }) => {
+export const CardGrid: FC<CardGridProps> = ({
+  cardsList,
+  s3NestKey,
+  gridCols = [1, 2, 3],
+}) => {
   const getHouseItemImageUrl = (houseItem: string) => {
     return `https://7-headington-rd.s3.eu-west-2.amazonaws.com/${s3NestKey}/${houseItem}.jpg`
   }
@@ -45,7 +50,8 @@ export const CardGrid: FC<CardGridProps> = ({ cardsList, s3NestKey }) => {
   }
 
   return (
-    <div className="grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div
+      className={`grid gap-16 grid-cols-${gridCols[0]} sm:grid-cols-${gridCols[1]} lg:grid-cols-${gridCols[2]}`}>
       {getMappedHouseItems(cardsList).map((listItem, index) => {
         return <Card key={`grid item ${index}`} {...listItem} />
       })}

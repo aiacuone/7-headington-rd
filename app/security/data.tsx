@@ -1,5 +1,7 @@
 import { ListItems } from '@/components/ListItems'
 import { Paragraphs } from '@/components/Paragraphs'
+import { CardGrid } from '@/components/ui/CardGrid'
+import { HouseItem } from '@/lib/types'
 import { Role } from '@/lib/types/user'
 
 const getConnectedHref =
@@ -51,6 +53,34 @@ const PrivacyAgent = () => {
   return <Paragraphs paragraphs={paragraphs} />
 }
 
+const Cameras = () => {
+  const securityCameraItems: HouseItem[] = [
+    {
+      label: 'Front Door',
+      imageSources: ['door-camera2', 'door-camera1'],
+    },
+    {
+      label: 'Backyard',
+      imageSources: ['backyard-camera2', 'backyard-camera1'],
+    },
+    {
+      label: 'Garage',
+      imageSources: ['garage-camera2', 'garage-camera1'],
+    },
+    {
+      label: 'Side Door',
+      imageSources: ['side-camera1', 'side-camera2'],
+    },
+  ]
+  return (
+    <CardGrid
+      cardsList={securityCameraItems}
+      s3NestKey="security-cameras"
+      gridCols={[1, 2, 2]}
+    />
+  )
+}
+
 export const securityTabs = [
   {
     label: 'Privacy',
@@ -75,5 +105,10 @@ export const securityTabs = [
     content: <GettingConnectedAgent />,
     restrictedRoles: [Role.agent],
     key: 'getting-connected-agent',
+  },
+  {
+    label: 'Cameras',
+    content: <Cameras />,
+    restrictedRoles: [Role.agent],
   },
 ]
