@@ -2,6 +2,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useAuth } from '@/lib/hooks/useAuth'
 import { Role } from '@/lib/types/user'
+import { capitalizeString } from '@/lib/utils/string'
 import { FC, ReactNode, useState } from 'react'
 
 interface CustomTabsProps {
@@ -9,6 +10,7 @@ interface CustomTabsProps {
     label: string
     content: string | ReactNode
     restrictedRoles?: Role[]
+    key?: string
   }>
 }
 
@@ -22,7 +24,9 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
   })
 
   const showTabsAndHeader = filteredTabs.length > 1
-  const [selectedTab, setSelectedTab] = useState(filteredTabs[0]?.label ?? '')
+  const [selectedTab, setSelectedTab] = useState(
+    filteredTabs[0]?.key ?? filteredTabs[0]?.label ?? ''
+  )
   const onChangeTab = (label: string) => setSelectedTab(label)
 
   return (
@@ -30,17 +34,28 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
       defaultValue={filteredTabs[0].label}
       value={selectedTab}
       className="w-full sm:w-[650px] stack gap-3 h-full">
-      {filteredTabs.map(({ label, content }, index) => (
+      {filteredTabs.map(({ label, content, key, restrictedRoles }, index) => (
         <TabsContent
-          value={label}
+          value={key ?? label}
           key={`tab content ${index}`}
           className="flex-1 overflow-y-scroll hide-scrollbar">
           <div className="stack h-full">
             <div className="flex-1 center stack gap-10">
               {showTabsAndHeader && (
-                <p className="font-bold text-lg hidden sm:block">
-                  {selectedTab}
-                </p>
+                <div className="hstack gap-2 items-center">
+                  <p className="font-bold text-lg hidden sm:block">
+                    {
+                      filteredTabs.find(
+                        (tab) =>
+                          tab.key === selectedTab || tab.label === selectedTab
+                      )?.label
+                    }
+                  </p>
+                  {isAdmin &&
+                    restrictedRoles?.map((role) => (
+                      <p key={role}>({capitalizeString(role)})</p>
+                    ))}
+                </div>
               )}
               <div className="bg-muted p-4 rounded">
                 {Array.isArray(content) ? (
@@ -57,12 +72,12 @@ export const CustomTabs: FC<CustomTabsProps> = ({ tabs }) => {
       ))}
       {showTabsAndHeader && (
         <TabsList>
-          {filteredTabs.map(({ label }, index) => (
+          {filteredTabs.map(({ label, key }, index) => (
             <TabsTrigger
               className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-              value={label}
+              value={key ?? label}
               key={`tab trigger ${index}`}
-              onClick={() => onChangeTab(label)}>
+              onClick={() => onChangeTab(key ?? label)}>
               {label}
             </TabsTrigger>
           ))}

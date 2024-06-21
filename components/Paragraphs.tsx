@@ -11,7 +11,7 @@ export const Paragraphs = ({
   hasHeader = false,
 }: ParagraphProps) => {
   return (
-    <div className="stack gap-3 text-center">
+    <div className="stack gap-3 ">
       {paragraphs.map((paragraph, index) => {
         const isFirstIndex = index === 0
         const isParagraphAString = typeof paragraph === 'string'
@@ -20,13 +20,17 @@ export const Paragraphs = ({
           return (
             <p
               key={`paragraph ${index}`}
-              className="text-lg sm:text-xl font-bold">
+              className="text-lg sm:text-xl font-bold text-center">
               {paragraph}
             </p>
           )
 
         if (isParagraphAString)
-          return <p key={`paragraph ${index}`}>{paragraph}</p>
+          return (
+            <p className="text-center" key={`paragraph ${index}`}>
+              {paragraph}
+            </p>
+          )
 
         return paragraph
       })}

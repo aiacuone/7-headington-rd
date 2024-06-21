@@ -93,7 +93,7 @@ export const internetTabs = [
     content: <RouterContent />,
   },
   {
-    label: 'Connecting to Router',
+    label: 'Router Connection',
     content: <ConnectingToRouter />,
     restrictedRoles: [Role.admin],
   },
