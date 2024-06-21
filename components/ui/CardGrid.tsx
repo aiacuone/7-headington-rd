@@ -22,17 +22,18 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { Button } from './button'
+import { cn } from '@/lib/utils'
 
 interface CardGridProps {
   cardsList: HouseItem[]
   s3NestKey: string
-  gridCols?: [number, number, number]
+  className?: string
 }
 
 export const CardGrid: FC<CardGridProps> = ({
   cardsList,
   s3NestKey,
-  gridCols = [1, 2, 3],
+  className,
 }) => {
   const getHouseItemImageUrl = (houseItem: string) => {
     return `https://7-headington-rd.s3.eu-west-2.amazonaws.com/${s3NestKey}/${houseItem}.jpg`
@@ -51,7 +52,10 @@ export const CardGrid: FC<CardGridProps> = ({
 
   return (
     <div
-      className={`grid gap-16 grid-cols-${gridCols[0]} sm:grid-cols-${gridCols[1]} lg:grid-cols-${gridCols[2]}`}>
+      className={cn(
+        'grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+        className
+      )}>
       {getMappedHouseItems(cardsList).map((listItem, index) => {
         return <Card key={`grid item ${index}`} {...listItem} />
       })}

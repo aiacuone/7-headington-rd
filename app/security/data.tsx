@@ -76,7 +76,7 @@ const Cameras = () => {
     <CardGrid
       cardsList={securityCameraItems}
       s3NestKey="security-cameras"
-      gridCols={[1, 2, 2]}
+      className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"
     />
   )
 }
