@@ -15,16 +15,16 @@ const Issues = () => {
 const TenantConnection = () => {
   const paragraphs = [
     'We would like at least one member of the household to be connected to the application',
-    <p key="tenantApplicationConnectionParagraph">
+    <p key="tenantApplicationConnectionParagraph" className="text-center">
       If possible, please ask the tenant for at least one google email, then
-      send me an email{' '}
+      send us an email{' '}
       <a href="mailTo:aiacuone@gmail.com?subject=7 Heading Rd Tenant Application Connection&body=Please provide the tenant google email to get connected to the application">
         here
       </a>{' '}
-      and I will get them registered to the application, and they will be able
-      to log in
+      and we will get them registered to the application. They should then be
+      able to log in.
     </p>,
-    'At this point I can only connect google emails to the application. If we need to connect another emails, please let me know and I will see what I can do',
+    'At this point we can only connect google emails to the application. If we need to connect other emails, please let us know and we will see what we can do',
   ]
 
   return <Paragraphs paragraphs={paragraphs} />

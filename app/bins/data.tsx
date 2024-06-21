@@ -12,7 +12,7 @@ const CollectionDayContent = () => {
     <div className="stack gap-3">
       <p>Refuse collection days are as follows</p>
       <KeyValuePairs keyValuePairs={binDays} mappingKey="bin" />
-      <p className="">
+      <p className="text-center">
         Refer to this{' '}
         <a
           href="https://www.dartford.gov.uk/downloads/file/2184/recycling-week-1-calendar"
@@ -29,6 +29,7 @@ const GardenWaste = () => {
   const paragraphs = [
     'Please note that there is a Garden Waste (Maroon) bin',
     'Please do not put garden waste in the general waste bin.',
+    'We have already received a warning for this.',
   ]
 
   return <Paragraphs paragraphs={paragraphs} />
