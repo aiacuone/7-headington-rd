@@ -14,21 +14,19 @@ import {
 } from '@/components/ui/drawer'
 import { useRouter } from 'next/navigation'
 import { FC } from 'react'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
 import { useAuth } from '@/lib/hooks/useAuth'
 import { useFilteredNavigation } from '@/lib/hooks/useFilteredNavigation'
 import { capitalizeString } from '@/lib/utils/string'
 
 export const Footer = () => {
   const { isOpen, onClose, toggle } = useDisclosure()
-  const { data: session, status } = useSession()
+  const { isLoading, isSignedIn } = useAuth()
 
   const handleLoginAndLogout = async () => {
-    if (session) {
-      signOut()
-    } else {
-      signIn()
-    }
+    if (isSignedIn) return signOut()
+
+    signIn()
   }
 
   return (
@@ -39,9 +37,9 @@ export const Footer = () => {
         </Button>
         <div className="flex-1"></div>
         <Button onClick={handleLoginAndLogout} className="z-10">
-          {status === 'loading' ? (
+          {isLoading ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          ) : session ? (
+          ) : isSignedIn ? (
             'Sign Out'
           ) : (
             'Sign In'
