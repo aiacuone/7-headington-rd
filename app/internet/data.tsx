@@ -29,8 +29,7 @@ const Speed = () => {
   return (
     <div>
       <p>
-        The contract with the provider is for <b>500mbps</b>, but regular speeds
-        reach <b>900mbps</b>
+        The contract with the provider is for <b>60mbps</b>
       </p>
     </div>
   )
@@ -42,6 +41,10 @@ const Router = () => {
     ['Model', 'HX220'],
     ['Standard', 'AX1800'],
     ['Frequency', '2.5 and 5Ghz'],
+    [
+      'Password',
+      'We are not providing the password for the router. Please do not attempt to change any settings regarding the router. Changing settings to the router poses a security risk due to the security cameras being connected to the wifi. If there are any issues with the wifi, please contact the agent.',
+    ],
   ]
 
   const paragraphs = [
@@ -73,7 +76,8 @@ const ConnectingToRouter = () => {
       <a
         href="http://tplinkwifi.net/"
         key="router settings link"
-        target="_blank">
+        target="_blank"
+      >
         Link
       </a>,
     ],
@@ -85,7 +89,6 @@ const ConnectingToRouter = () => {
           <Clipboard size="15px" />
         </Button>
       </div>,
-      'Ghost97Mount',
     ],
   ]
 

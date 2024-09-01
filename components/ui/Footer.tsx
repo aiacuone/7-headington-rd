@@ -79,7 +79,7 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
           </div>
         </DrawerHeader>
         <DrawerFooter className="center">
-          <div className="overflow-y-scroll stack gap-3 hide-scrollbar">
+          <div className="overflow-y-scroll stack gap-3 hide-scrollbar max-h-[350px]">
             {filteredNavigation.map(
               ({ text, href, restrictedRoles }, index) => {
                 const hasRestrictedRoles = restrictedRoles
@@ -88,7 +88,8 @@ const FooterDrawer: FC<FooterDrawerProps> = ({ isOpen, onClose }) => {
                   <Button
                     onClick={() => onClickLink(href)}
                     className="sm:min-w-[250px] min-w-full"
-                    key={`drawer link ${index}`}>
+                    key={`drawer link ${index}`}
+                  >
                     {text}{' '}
                     {isAdmin &&
                       hasRestrictedRoles &&
