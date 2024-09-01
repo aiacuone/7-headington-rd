@@ -5,7 +5,7 @@ import { useToast } from '@/components/ui/use-toast'
 import { Role } from '@/lib/types/user'
 import { Clipboard } from 'lucide-react'
 
-const Password = () => {
+const NameAndPassword = () => {
   const { toast } = useToast()
 
   const copyToClipboard = () => {
@@ -13,14 +13,22 @@ const Password = () => {
     toast({ title: 'Copied to clipboard' })
   }
   return (
-    <div className="hstack gap-3 center">
-      <p>
-        <b>Wifi:</b>
-      </p>
-      <p>7TonnesOfHeading2023</p>
-      <Button onClick={copyToClipboard} size="sm">
-        <Clipboard size="20px" />
-      </Button>
+    <div className="stack">
+      <div className="hstack gap-3">
+        <p>
+          <b>Name:</b>
+        </p>
+        <p>daid & daid_5g</p>
+      </div>
+      <div className="hstack gap-3 center">
+        <p>
+          <b>Wifi:</b>
+        </p>
+        <p>7TonnesOfHeading2023</p>
+        <Button onClick={copyToClipboard} size="sm">
+          <Clipboard size="20px" />
+        </Button>
+      </div>
     </div>
   )
 }
@@ -110,8 +118,8 @@ const ConnectingToRouter = () => {
 
 export const internetTabs = [
   {
-    label: 'Password',
-    content: <Password />,
+    label: 'Name and Password',
+    content: <NameAndPassword />,
     restrictedRoles: [Role.tenant],
   },
   {
