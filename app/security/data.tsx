@@ -9,7 +9,7 @@ const getConnectedHref =
 
 const GettingConnectedTenant = () => {
   const paragraphs = [
-    <p className="text-center">
+    <p className="text-center" key="security list item tenant">
       Send an email <a href={getConnectedHref}>here</a> providing an email that
       you would like to use to connect to the security cameras,
     </p>,
@@ -25,7 +25,7 @@ const GettingConnectedAgent = () => {
   const list = [
     'Download the Eufy application on your phone',
     'Take note of the email address used to connect to the Eufy application',
-    <p key="security list item">
+    <p key="security list item agent">
       Send me an email{' '}
       <a href={getConnectedHref} target="_blank">
         here
