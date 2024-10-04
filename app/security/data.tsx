@@ -5,11 +5,17 @@ import { HouseItem } from '@/lib/types'
 import { Role } from '@/lib/types/user'
 
 const getConnectedHref =
-  'mailTo=aiacuone@gmail.com?subject=7 Headington Rd Security Camera Connection&body=Please provide your email address used to connect to the Eufy application'
+  'mailto:aiacuone@gmail.com?subject=7 Headington Rd Security Camera Connection&body=Please provide your email address used to connect to the Eufy application'
 
 const GettingConnectedTenant = () => {
   const paragraphs = [
-    'If you wish to get connected to the security cameras, please contact the agent',
+    <p className="text-center">
+      Send an email <a href={getConnectedHref}>here</a> providing an email that
+      you would like to use to connect to the security cameras,
+    </p>,
+    'Download the Eufy application on your phone',
+    'Login into the Eufy application with the email provided in step 1',
+    'From here you will be able to view the security cameras',
   ]
 
   return <Paragraphs paragraphs={paragraphs} />
@@ -20,8 +26,11 @@ const GettingConnectedAgent = () => {
     'Download the Eufy application on your phone',
     'Take note of the email address used to connect to the Eufy application',
     <p key="security list item">
-      Send me an email <a href={getConnectedHref}>here</a> with the email used
-      to get connected to the app
+      Send me an email{' '}
+      <a href={getConnectedHref} target="_blank">
+        here
+      </a>{' '}
+      with the email used to get connected to the app
     </p>,
     'I will then send an invite to connect to the cameras',
   ]
